@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquear acesso à API por crawlers
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://pedro-siqueira.vercel.app/sitemap.xml

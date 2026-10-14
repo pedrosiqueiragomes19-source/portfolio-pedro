@@ -1,0 +1,156 @@
+<!-- Seção Trajetória / Experiência -->
+<section
+  #experienceSection
+  id="experience"
+  class="experience-section relative overflow-hidden py-20 sm:py-28 lg:py-40"
+>
+  <!-- Fundo sutil -->
+  <div class="experience-background" aria-hidden="true">
+    <span class="experience-background-word"> EXPERIENCE </span>
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <header class="experience-header max-w-3xl">
+      <div class="experience-label flex items-center gap-4">
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
+          {{ languageService.translations.experience.label }}
+        </span>
+        <span class="experience-header-line h-px w-12 bg-[var(--border)]" aria-hidden="true"></span>
+      </div>
+
+      <h2
+        class="experience-title mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[4.2rem]"
+      >
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine1 }}
+        </span>
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine2 }}
+        </span>
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine3 }}
+        </span>
+      </h2>
+
+      <p class="experience-intro mt-6 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
+        {{ languageService.translations.experience.intro }}
+      </p>
+    </header>
+
+    <!-- Linha do tempo das experiências -->
+    <div class="experience-process">
+      <div class="experience-progress" aria-hidden="true">
+        <div class="experience-progress-track"></div>
+        <div class="experience-progress-fill"></div>
+      </div>
+
+      <!-- Experiência 01 -->
+      <article class="experience-step" data-step="01">
+        <div class="experience-step-number">
+          <span>01</span>
+        </div>
+
+        <div class="experience-step-content">
+          <div class="experience-step-meta">
+            <span>01</span>
+            <span>
+              {{ languageService.translations.experience.jobs[0].meta }}
+            </span>
+          </div>
+
+          <h3>
+            {{ languageService.translations.experience.jobs[0].role }}
+          </h3>
+
+          <p class="experience-company">
+            {{ languageService.translations.experience.jobs[0].company }}
+          </p>
+
+          <p>
+            {{ languageService.translations.experience.jobs[0].description }}
+          </p>
+
+          <div class="experience-tags">
+            <span>Engenharia</span>
+            <span>Operações</span>
+            <span>Processos</span>
+            <span>Organização</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Experiência 02 -->
+      <article class="experience-step" data-step="02">
+        <div class="experience-step-number">
+          <span>02</span>
+        </div>
+
+        <div class="experience-step-content">
+          <div class="experience-step-meta">
+            <span>02</span>
+            <span>
+              {{ languageService.translations.experience.jobs[1].meta }}
+            </span>
+          </div>
+
+          <h3>
+            {{ languageService.translations.experience.jobs[1].role }}
+          </h3>
+
+          <p class="experience-company">
+            {{ languageService.translations.experience.jobs[1].company }}
+          </p>
+
+          <p>
+            {{ languageService.translations.experience.jobs[1].description }}
+          </p>
+
+          <div class="experience-tags">
+            <span>TypeScript</span>
+            <span>Angular</span>
+            <span>Web Dev</span>
+            <span>Banco de Dados</span>
+            <span>Automação</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Contador de etapas -->
+      <div class="experience-counter" aria-hidden="true">
+        <span class="experience-counter-current"> 01 </span>
+        <span class="experience-counter-divider"> / </span>
+        <span> 02 </span>
+      </div>
+    </div>
+
+    <!-- Rodapé da seção -->
+    <div class="experience-bottom">
+      <span class="experience-bottom-line" aria-hidden="true"></span>
+      <span class="experience-bottom-text">
+        {{ languageService.translations.experience.bottom }}
+      </span>
+      <span class="experience-bottom-line" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- Onda de transição para o contato -->
+  <div class="experience-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 170" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        class="experience-wave__main"
+        fill="var(--background)"
+        d="
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
+  </div>
+</section>

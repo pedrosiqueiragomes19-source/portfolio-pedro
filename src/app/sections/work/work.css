@@ -1,0 +1,2306 @@
+/* =========================================================
+   WORK SECTION
+   ========================================================= */
+
+.work-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 700ms ease,
+    color 700ms ease;
+}
+
+
+/* =========================================================
+   BACKGROUND ATMOSPHERE
+   ========================================================= */
+
+.work-background-glow {
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--primary) 11%, transparent) 0%,
+      color-mix(in srgb, var(--primary) 5.5%, transparent) 30%,
+      rgba(96, 165, 250, 0.03) 52%,
+      transparent 72%
+    );
+
+  filter: blur(40px);
+  opacity: 0.8;
+
+  animation:
+    work-glow-float
+    12s
+    ease-in-out
+    infinite;
+
+  will-change: transform;
+
+  transition:
+    opacity 700ms ease,
+    background 700ms ease;
+}
+
+
+.work-background-glow--secondary {
+  opacity: 0.55;
+
+  animation-duration: 15s;
+  animation-delay: -4s;
+}
+
+
+html.dark .work-background-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.13) 0%,
+      rgba(167, 139, 250, 0.065) 30%,
+      rgba(96, 165, 250, 0.045) 52%,
+      transparent 72%
+    );
+
+  opacity: 0.95;
+}
+
+
+html.dark .work-background-glow--secondary {
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   DECORATIVE CORNER ORBITS
+   ========================================================= */
+
+.work-corner-orbits {
+  position: absolute;
+
+  width: 430px;
+  height: 165px;
+
+  right: 0;
+  top: -28px;
+  left: -153px;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  opacity: 1;
+
+  transform-origin: top right;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   CORNER ORBITS SVG
+   ========================================================= */
+
+.work-corner-orbits__svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ORBIT LINES
+   ========================================================= */
+
+.work-corner-orbit-line {
+  fill: none;
+
+  pointer-events: none;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+
+  animation: none !important;
+
+  transition:
+    opacity 600ms ease,
+    filter 600ms ease;
+}
+
+
+/* =========================================================
+   PURPLE ORBIT LINE
+   ========================================================= */
+
+.work-corner-orbit-line--purple {
+  opacity: 0.78;
+
+  filter:
+    drop-shadow(
+      0 0 3px rgba(124, 58, 237, 0.08)
+    );
+}
+
+
+/* =========================================================
+   BLUE ORBIT LINE
+   ========================================================= */
+
+.work-corner-orbit-line--blue {
+  opacity: 0.70;
+
+  filter:
+    drop-shadow(
+      0 0 3px rgba(96, 165, 250, 0.07)
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — ORBIT LINES
+   ========================================================= */
+
+html.dark .work-corner-orbit-line--purple {
+  opacity: 0.9;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(167, 139, 250, 0.18)
+    );
+}
+
+
+html.dark .work-corner-orbit-line--blue {
+  opacity: 0.82;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(96, 165, 250, 0.16)
+    );
+}
+
+
+/* =========================================================
+   CORNER ORBS
+   ========================================================= */
+
+.work-corner-orb {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform-origin: center center;
+
+  will-change:
+    transform,
+    opacity;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   ORB HALO
+   ========================================================= */
+
+.work-corner-orb__halo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 34px;
+  height: 34px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(196, 181, 253, 0.25) 22%,
+      rgba(124, 58, 237, 0.12) 48%,
+      transparent 75%
+    );
+
+  filter: blur(6px);
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  transition:
+    opacity 600ms ease,
+    background 600ms ease;
+}
+
+
+/* =========================================================
+   ORB CORE
+   ========================================================= */
+
+.work-corner-orb__core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ORB INNER LIGHT
+   ========================================================= */
+
+.work-corner-orb__core::after {
+  content: '';
+
+  position: absolute;
+
+  left: 24%;
+  top: 18%;
+
+  width: 30%;
+  height: 30%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  filter: blur(0.3px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PURPLE ORB
+   ========================================================= */
+
+.work-corner-orb--purple {
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(237, 233, 254, 0.94) 12%,
+      rgba(196, 181, 253, 0.82) 26%,
+      rgba(167, 139, 250, 0.64) 42%,
+      rgba(124, 58, 237, 0.48) 62%,
+      rgba(124, 58, 237, 0.20) 80%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(124, 58, 237, 0.48),
+    0 0 18px rgba(124, 58, 237, 0.22),
+    0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================================
+   PURPLE HALO
+   ========================================================= */
+
+.work-corner-orb--purple .work-corner-orb__halo {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(196, 181, 253, 0.24) 22%,
+      rgba(124, 58, 237, 0.13) 46%,
+      transparent 76%
+    );
+}
+
+
+/* =========================================================
+   BLUE ORB
+   ========================================================= */
+
+.work-corner-orb--blue {
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(224, 242, 254, 0.94) 12%,
+      rgba(186, 230, 253, 0.82) 26%,
+      rgba(96, 165, 250, 0.64) 42%,
+      rgba(59, 130, 246, 0.48) 62%,
+      rgba(37, 99, 235, 0.20) 80%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(96, 165, 250, 0.50),
+    0 0 18px rgba(96, 165, 250, 0.24),
+    0 0 30px rgba(96, 165, 250, 0.08);
+}
+
+
+/* =========================================================
+   BLUE HALO
+   ========================================================= */
+
+.work-corner-orb--blue .work-corner-orb__halo {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.44) 0%,
+      rgba(191, 219, 254, 0.25) 22%,
+      rgba(96, 165, 250, 0.13) 46%,
+      transparent 76%
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — ORBS
+   ========================================================= */
+
+html.dark .work-corner-orb--purple {
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.75),
+    0 0 10px rgba(167, 139, 250, 0.62),
+    0 0 22px rgba(124, 58, 237, 0.34),
+    0 0 38px rgba(124, 58, 237, 0.14);
+}
+
+
+html.dark .work-corner-orb--blue {
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.75),
+    0 0 10px rgba(96, 165, 250, 0.65),
+    0 0 22px rgba(96, 165, 250, 0.34),
+    0 0 38px rgba(96, 165, 250, 0.14);
+}
+
+
+/* =========================================================
+   ORB 01
+   ========================================================= */
+
+.work-corner-orb--one {
+  left: 18%;
+  top: 74%;
+
+  width: 7px;
+  height: 7px;
+
+  animation:
+    work-corner-orb-one-float
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB 02
+   ========================================================= */
+
+.work-corner-orb--two {
+  left: 34%;
+  top: 87%;
+
+  width: 5px;
+  height: 5px;
+
+  animation:
+    work-corner-orb-two-float
+    4.8s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB 03
+   ========================================================= */
+
+.work-corner-orb--three {
+  left: 84%;
+  top: 28%;
+
+  width: 7px;
+  height: 7px;
+
+  animation:
+    work-corner-orb-three-float
+    4.4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB HALOS INDIVIDUAIS
+   ========================================================= */
+
+.work-corner-orb--one .work-corner-orb__halo {
+  width: 28px;
+  height: 28px;
+
+  opacity: 0.62;
+
+  filter: blur(5px);
+}
+
+
+.work-corner-orb--two .work-corner-orb__halo {
+  width: 24px;
+  height: 24px;
+
+  opacity: 0.55;
+
+  filter: blur(5px);
+}
+
+
+.work-corner-orb--three .work-corner-orb__halo {
+  width: 30px;
+  height: 30px;
+
+  opacity: 0.65;
+
+  filter: blur(6px);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.work-header {
+  position: relative;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   HEADER LINE
+   ========================================================= */
+
+.work-header-line {
+  display: block;
+
+  transform-origin: left center;
+
+  will-change:
+    transform,
+    opacity;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      transparent
+    );
+
+  animation:
+    work-line-breathe
+    5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 500ms ease;
+}
+
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.work-gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary) 0%,
+      var(--primary-light) 42%,
+      #60a5fa 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  transition:
+    filter 500ms ease;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+   ========================================================= */
+
+.work-projects-button-area {
+  position: relative;
+
+  z-index: 20;
+}
+
+
+.work-button-glow {
+  position: absolute;
+
+  z-index: 0;
+
+  left: 50%;
+  top: 55%;
+
+  width: 190px;
+  height: 52px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      color-mix(
+        in srgb,
+        var(--primary) 17%,
+        transparent
+      ) 0%,
+      color-mix(
+        in srgb,
+        var(--primary) 8%,
+        transparent
+      ) 38%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+
+  animation:
+    work-button-glow-float
+    3.8s
+    ease-in-out
+    infinite;
+
+  transition:
+    background 600ms ease,
+    opacity 600ms ease;
+}
+
+
+/* =========================================================
+   PROJECT BUTTON
+   ========================================================= */
+
+.work-projects-button {
+  position: relative;
+
+  z-index: 20;
+
+  color: var(--foreground);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--surface) 80%,
+      transparent
+    );
+
+  border-color: var(--border);
+
+  will-change: transform;
+
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    background-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+
+.work-projects-button:hover {
+  border-color:
+    color-mix(
+      in srgb,
+      var(--primary) 35%,
+      var(--border)
+    );
+
+  box-shadow:
+    0 16px 35px rgba(80, 60, 130, 0.12);
+}
+
+
+html.dark .work-projects-button {
+  background:
+    rgba(28, 24, 34, 0.72);
+
+  border-color:
+    rgba(255, 255, 255, 0.10);
+
+  color: var(--foreground);
+}
+
+
+html.dark .work-projects-button:hover {
+  background:
+    rgba(36, 31, 45, 0.82);
+
+  border-color:
+    rgba(167, 139, 250, 0.30);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.work-header,
+.work-intro,
+.work-project,
+.work-project-visual,
+.work-project-info,
+.work-project-meta,
+.work-footer {
+  will-change:
+    transform,
+    opacity;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+/* =========================================================
+   PROJECT
+   ========================================================= */
+
+.work-project {
+  position: relative;
+
+  transform-origin: center center;
+}
+
+
+/* =========================================================
+   PROJECT VISUAL — BASE
+   ========================================================= */
+
+.work-project-visual {
+  position: relative;
+
+  transform-origin: center center;
+
+  isolation: isolate;
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--foreground) 8%,
+      transparent
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(
+        in srgb,
+        var(--surface) 97%,
+        var(--primary) 3%
+      ),
+      var(--surface)
+    );
+
+  will-change:
+    transform,
+    opacity;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.20) inset,
+    0 12px 25px rgba(40, 25, 80, 0.04),
+    0 25px 65px rgba(40, 25, 80, 0.07);
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 700ms ease,
+    background 700ms ease,
+    border-color 500ms ease,
+    box-shadow 700ms ease;
+}
+
+
+/* =========================================================
+   CARD ATMOSPHERE
+   ========================================================= */
+
+.work-project-visual::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      color-mix(
+        in srgb,
+        var(--primary-light) 9%,
+        transparent
+      ),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(96, 165, 250, 0.045),
+      transparent 38%
+    );
+
+  opacity: 0.9;
+
+  transition:
+    opacity 700ms ease,
+    background 700ms ease;
+}
+
+
+/* =========================================================
+   TOP EDGE LIGHT
+   ========================================================= */
+
+.work-project-visual::after {
+  content: '';
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  top: 0;
+
+  height: 1px;
+
+  z-index: 30;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      color-mix(
+        in srgb,
+        var(--primary-light) 35%,
+        transparent
+      ),
+      rgba(96, 165, 250, 0.20),
+      transparent
+    );
+
+  opacity: 0.55;
+
+  filter: blur(0.2px);
+
+  transition:
+    opacity 600ms ease,
+    filter 600ms ease;
+}
+
+
+/* =========================================================
+   PROJECT HOVER — FLOAT
+   ========================================================= */
+
+.work-project-visual:hover {
+  transform:
+    translateY(-7px)
+    scale(1.008);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--primary) 18%,
+      var(--border)
+    );
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 18px 35px rgba(40, 25, 80, 0.07),
+    0 35px 90px rgba(40, 25, 80, 0.13),
+    0 0 55px
+      color-mix(
+        in srgb,
+        var(--primary) 7%,
+        transparent
+      );
+}
+
+
+.work-project-visual:hover::before {
+  opacity: 1;
+}
+
+
+.work-project-visual:hover::after {
+  opacity: 0.9;
+
+  filter: blur(0.5px);
+}
+
+
+/* =========================================================
+   LIGHT MODE — PROJECT CARDS
+   ========================================================= */
+
+.work-project-visual--dashboard {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--surface) 95%,
+        var(--primary) 5%
+      ),
+      var(--surface)
+    );
+}
+
+
+.work-project-visual--travel {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(
+        in srgb,
+        var(--surface) 96%,
+        #60a5fa 4%
+      ),
+      var(--surface)
+    );
+}
+
+
+/* =========================================================
+   PROJECT FLOOR LIGHT
+   ========================================================= */
+
+.work-project-floor-glow {
+  background:
+    radial-gradient(
+      ellipse,
+      color-mix(
+        in srgb,
+        var(--primary) 18%,
+        transparent
+      ) 0%,
+      color-mix(
+        in srgb,
+        var(--primary) 8%,
+        transparent
+      ) 35%,
+      transparent 72%
+    );
+
+  filter: blur(22px);
+
+  opacity: 0.35;
+
+  transform-origin:
+    center center;
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.work-project-visual:hover
+.work-project-floor-glow {
+  opacity: 0.55;
+
+  transform:
+    translateX(-50%)
+    scaleX(1.08);
+}
+
+
+/* =========================================================
+   DARK MODE — ELEVATED PROJECT CARDS
+   ========================================================= */
+
+html.dark .work-project-visual {
+  background:
+    linear-gradient(
+      145deg,
+      #251f2e 0%,
+      #211c29 48%,
+      #1f1a27 100%
+    );
+
+  border-color:
+    rgba(255, 255, 255, 0.085);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.045) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.18) inset,
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    0 35px 85px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   DARK MODE — CARD ATMOSPHERE
+   ========================================================= */
+
+html.dark .work-project-visual::before {
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(167, 139, 250, 0.075),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 85% 88%,
+      rgba(96, 165, 250, 0.055),
+      transparent 40%
+    );
+
+  opacity: 1;
+}
+
+
+html.dark .work-project-visual::after {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.25),
+      rgba(96, 165, 250, 0.14),
+      transparent
+    );
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   DARK MODE — DASHBOARD CARD
+   ========================================================= */
+
+html.dark .work-project-visual--dashboard {
+  background:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(124, 58, 237, 0.13),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(96, 165, 250, 0.08),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      #251f2e,
+      #211c29 55%,
+      #1f1a27
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — TRAVEL CARD
+   ========================================================= */
+
+html.dark .work-project-visual--travel {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(96, 165, 250, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(124, 58, 237, 0.08),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      #251f2e,
+      #211c29 55%,
+      #1f1a27
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — CARD HOVER
+   ========================================================= */
+
+html.dark .work-project-visual:hover {
+  background:
+    linear-gradient(
+      145deg,
+      #292332 0%,
+      #241f2d 48%,
+      #211c29 100%
+    );
+
+  border-color:
+    rgba(167, 139, 250, 0.18);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.22) inset,
+    0 25px 60px rgba(0, 0, 0, 0.28),
+    0 40px 100px rgba(0, 0, 0, 0.22),
+    0 0 65px rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================================
+   DARK MODE — PROJECT FLOOR LIGHT
+   ========================================================= */
+
+html.dark .work-project-floor-glow {
+  opacity: 0.48;
+}
+
+
+html.dark .work-project-visual:hover
+.work-project-floor-glow {
+  opacity: 0.70;
+}
+
+
+/* =========================================================
+   PROJECT DEPTH GLOW
+   ========================================================= */
+
+.work-project-depth-glow {
+  position: absolute;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  border-radius: 50%;
+
+  filter: blur(55px);
+
+  opacity: 0.65;
+
+  will-change:
+    transform,
+    opacity;
+
+  transition:
+    opacity 700ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 700ms ease;
+}
+
+
+/* =========================================================
+   PURPLE DEPTH
+   ========================================================= */
+
+.work-project-depth-glow--purple {
+  width: 65%;
+  height: 65%;
+
+  left: 0;
+  bottom: -18%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.30) 0%,
+      rgba(139, 92, 246, 0.16) 32%,
+      rgba(167, 139, 250, 0.06) 52%,
+      transparent 74%
+    );
+}
+
+
+/* =========================================================
+   BLUE DEPTH
+   ========================================================= */
+
+.work-project-depth-glow--blue {
+  width: 58%;
+  height: 62%;
+
+  right: -7%;
+  top: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.23) 0%,
+      rgba(96, 165, 250, 0.13) 32%,
+      rgba(129, 140, 248, 0.06) 52%,
+      transparent 74%
+    );
+}
+
+
+/* =========================================================
+   DEPTH GLOW HOVER
+   ========================================================= */
+
+.work-project-visual:hover
+.work-project-depth-glow--purple {
+  opacity: 0.85;
+
+  transform:
+    translate3d(8px, -5px, 0)
+    scale(1.08);
+}
+
+
+.work-project-visual:hover
+.work-project-depth-glow--blue {
+  opacity: 0.82;
+
+  transform:
+    translate3d(-6px, 5px, 0)
+    scale(1.08);
+}
+
+
+/* =========================================================
+   DARK MODE — PROJECT GLOWS
+   ========================================================= */
+
+html.dark .work-project-depth-glow--purple {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.40) 0%,
+      rgba(139, 92, 246, 0.20) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.8;
+}
+
+
+html.dark .work-project-depth-glow--blue {
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.32) 0%,
+      rgba(96, 165, 250, 0.16) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+   ========================================================= */
+
+.work-project-image {
+  position: relative;
+
+  z-index: 10;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   REAL PROJECT IMAGE
+   ========================================================= */
+
+.work-project-real-image {
+  position: relative;
+
+  z-index: 10;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+
+  transform-origin: center center;
+
+  filter:
+    drop-shadow(
+      0 20px 35px rgba(40, 25, 80, 0.10)
+    );
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms ease;
+}
+
+
+.work-project-visual:hover
+.work-project-real-image {
+  transform:
+    translateY(-4px)
+    scale(1.012);
+
+  filter:
+    drop-shadow(
+      0 28px 48px rgba(40, 25, 80, 0.16)
+    );
+}
+
+
+html.dark .work-project-real-image {
+  filter:
+    drop-shadow(
+      0 22px 42px rgba(0, 0, 0, 0.30)
+    );
+}
+
+
+html.dark .work-project-visual:hover
+.work-project-real-image {
+  filter:
+    drop-shadow(
+      0 30px 55px rgba(0, 0, 0, 0.38)
+    );
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.work-dashboard {
+  transform-origin: center center;
+
+  will-change:
+    transform;
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease;
+}
+
+
+.work-project-visual:hover .work-dashboard {
+  transform:
+    translateY(-5px)
+    scale(1.012);
+
+  box-shadow:
+    0 35px 90px rgba(40, 25, 80, 0.32);
+}
+
+
+/* =========================================================
+   TRAVEL MOCKUP
+   ========================================================= */
+
+.work-travel-mockup {
+  transform-origin: center center;
+
+  will-change:
+    transform;
+
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 600ms ease;
+}
+
+
+.work-project-visual--travel:hover
+.work-travel-mockup {
+  transform:
+    translate(-50%, -50%)
+    translateY(-5px)
+    scale(1.012);
+
+  box-shadow:
+    0 35px 90px rgba(24, 36, 52, 0.27);
+}
+
+
+/* =========================================================
+   PROJECT INFO
+   ========================================================= */
+
+.work-project-info {
+  position: relative;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+.work-project-meta {
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   PROJECT LINKS
+   ========================================================= */
+
+.work-project-link {
+  transition:
+    color 300ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   PRIMARY PROJECT LINK
+   ========================================================= */
+
+.work-project-link--primary {
+  background:
+    var(--foreground);
+
+  border-color:
+    var(--foreground);
+
+  color:
+    var(--background);
+}
+
+
+.work-project-link--primary:hover {
+  background:
+    var(--primary);
+
+  border-color:
+    var(--primary);
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 10px 30px
+    color-mix(
+      in srgb,
+      var(--primary) 22%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SECONDARY PROJECT LINK
+   ========================================================= */
+
+.work-project-link--secondary {
+  background:
+    var(--surface);
+
+  border-color:
+    var(--border);
+
+  color:
+    var(--foreground);
+}
+
+
+.work-project-link--secondary:hover {
+  border-color:
+    var(--primary);
+
+  color:
+    var(--primary);
+
+  box-shadow:
+    0 10px 30px
+    color-mix(
+      in srgb,
+      var(--primary) 10%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — PROJECT LINKS
+   ========================================================= */
+
+html.dark .work-project-link--primary {
+  background:
+    #f3f0f7;
+
+  border-color:
+    #f3f0f7;
+
+  color:
+    #15121a;
+}
+
+
+html.dark .work-project-link--primary:hover {
+  background:
+    var(--primary);
+
+  border-color:
+    var(--primary);
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 12px 32px
+    rgba(167, 139, 250, 0.20);
+}
+
+
+html.dark .work-project-link--secondary {
+  background:
+    var(--surface);
+
+  border-color:
+    var(--border);
+
+  color:
+    var(--foreground);
+}
+
+
+html.dark .work-project-link--secondary:hover {
+  border-color:
+    var(--primary);
+
+  color:
+    var(--primary-light);
+
+  box-shadow:
+    0 12px 32px
+    rgba(167, 139, 250, 0.10);
+}
+
+
+/* =========================================================
+   CORNER BRACKETS DOS BOTÕES
+   ========================================================= */
+
+.work-project-link--primary + *,
+.work-project-link--secondary + * {
+  color:
+    var(--foreground);
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.work-chart {
+  position: relative;
+}
+
+
+.work-chart svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+
+.work-chart path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   DIVIDERS / BORDERS
+   ========================================================= */
+
+.work-project-divider,
+.work-bottom {
+  border-color:
+    var(--border);
+
+  transition:
+    border-color 600ms ease;
+}
+
+
+.work-bottom {
+  color:
+    var(--muted);
+}
+
+
+/* =========================================================
+   BACKGROUND ANIMATION
+   ========================================================= */
+
+@keyframes work-glow-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(15px, -12px, 0)
+      scale(1.04);
+  }
+}
+
+
+/* =========================================================
+   HEADER LINE ANIMATION
+   ========================================================= */
+
+@keyframes work-line-breathe {
+  0%,
+  100% {
+    transform:
+      scaleX(1);
+
+    opacity:
+      0.55;
+  }
+
+  50% {
+    transform:
+      scaleX(1.2);
+
+    opacity:
+      0.9;
+  }
+}
+
+
+/* =========================================================
+   BUTTON GLOW ANIMATION
+   ========================================================= */
+
+@keyframes work-button-glow-float {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+
+    opacity:
+      0.6;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -54%)
+      scale(1.08);
+
+    opacity:
+      0.85;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 01
+   ========================================================= */
+
+@keyframes work-corner-orb-one-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity:
+      0.82;
+  }
+
+  50% {
+    transform:
+      translate3d(4px, -5px, 0)
+      scale(1.18);
+
+    opacity:
+      1;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 02
+   ========================================================= */
+
+@keyframes work-corner-orb-two-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity:
+      0.72;
+  }
+
+  50% {
+    transform:
+      translate3d(-4px, -6px, 0)
+      scale(1.20);
+
+    opacity:
+      1;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 03
+   ========================================================= */
+
+@keyframes work-corner-orb-three-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity:
+      0.82;
+  }
+
+  50% {
+    transform:
+      translate3d(5px, -7px, 0)
+      scale(1.16);
+
+    opacity:
+      1;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-background-glow,
+  .work-header-line,
+  .work-corner-orb,
+  .work-button-glow {
+    animation:
+      none;
+  }
+
+  .work-header,
+  .work-intro,
+  .work-project,
+  .work-project-visual,
+  .work-project-info,
+  .work-project-meta,
+  .work-footer {
+    will-change:
+      auto;
+
+    transform:
+      none !important;
+
+    opacity:
+      1 !important;
+  }
+
+  .work-corner-orbits {
+    animation:
+      none !important;
+  }
+
+  .work-dashboard,
+  .work-travel-mockup,
+  .work-projects-button,
+  .work-project-link,
+  .work-project-real-image,
+  .work-project-floor-glow,
+  .work-project-depth-glow {
+    transition:
+      none;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .work-section {
+    padding-top:
+      5rem;
+
+    padding-bottom:
+      5rem;
+  }
+
+  .work-project {
+    gap:
+      2rem;
+  }
+
+  .work-background-glow {
+    filter:
+      blur(30px);
+  }
+
+
+  /* -----------------------------------------
+     CORNER ORBITS
+     ----------------------------------------- */
+
+  .work-corner-orbits {
+    width:
+      390px;
+
+    height:
+      150px;
+
+    right:
+      -25px !important;
+
+    top:
+      150px !important;
+
+    transform:
+      scale(0.88);
+
+    transform-origin:
+      top right;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .work-section {
+    padding-top:
+      4.5rem;
+
+    padding-bottom:
+      4.5rem;
+  }
+
+  .work-background-glow {
+    width:
+      300px !important;
+
+    height:
+      300px !important;
+
+    filter:
+      blur(25px);
+  }
+
+
+  /* -----------------------------------------
+     CORNER ORBITS
+     ----------------------------------------- */
+
+  .work-corner-orbits {
+    width:
+      320px;
+
+    height:
+      125px;
+
+    right:
+      -55px !important;
+
+    top:
+      185px !important;
+
+    transform:
+      scale(0.72);
+
+    transform-origin:
+      top right;
+  }
+
+
+  /* -----------------------------------------
+     BUTTON
+     ----------------------------------------- */
+
+  .work-projects-button {
+    padding-left:
+      1.25rem;
+
+    padding-right:
+      1.25rem;
+  }
+
+
+  /* -----------------------------------------
+     PROJECTS
+     ----------------------------------------- */
+
+  .work-project-visual {
+    border-radius:
+      18px;
+  }
+
+  .work-dashboard {
+    border-radius:
+      12px;
+  }
+
+  .work-travel-mockup {
+    width:
+      88%;
+  }
+
+
+  .work-project-real-image {
+    max-width:
+      100%;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .work-corner-orbits {
+    width:
+      285px;
+
+    height:
+      112px;
+
+    left:
+      -65px !important;
+
+    top:
+      10px !important;
+
+    transform:
+      scale(0.68);
+
+    transform-origin:
+      top right;
+  }
+
+  .work-project-visual {
+    border-radius:
+      16px;
+  }
+
+  .work-dashboard {
+    border-radius:
+      10px;
+  }
+}
+
+/* =========================================================
+   WORK — BACKGROUND LIGHT FIELD
+   ========================================================= */
+
+.work-light-field {
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   LIGHT POINT BASE
+   ========================================================= */
+
+.work-light-point {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 999px;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    opacity;
+
+  animation:
+    work-light-float
+    7s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   PURPLE LIGHT
+   ========================================================= */
+
+.work-light-point--purple {
+  width: 5px;
+  height: 5px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(196, 181, 253, 0.85) 18%,
+      rgba(167, 139, 250, 0.55) 40%,
+      rgba(124, 58, 237, 0.18) 68%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.65),
+    0 0 10px rgba(167, 139, 250, 0.38),
+    0 0 20px rgba(124, 58, 237, 0.16);
+
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   BLUE LIGHT
+   ========================================================= */
+
+.work-light-point--blue {
+  width: 5px;
+  height: 5px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(191, 219, 254, 0.85) 18%,
+      rgba(96, 165, 250, 0.55) 40%,
+      rgba(59, 130, 246, 0.18) 68%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.65),
+    0 0 10px rgba(96, 165, 250, 0.38),
+    0 0 20px rgba(59, 130, 246, 0.16);
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   TINY LIGHTS
+   ========================================================= */
+
+.work-light-point--tiny {
+  width: 2px;
+  height: 2px;
+
+  background:
+    rgba(255, 255, 255, 0.85);
+
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.35),
+    0 0 10px rgba(167, 139, 250, 0.18);
+
+  opacity: 0.38;
+
+  animation-duration: 9s;
+}
+
+
+/* =========================================================
+   POSITIONS
+   ========================================================= */
+
+/* Purple — upper left */
+
+.work-light-point--one {
+  left: 12%;
+  top: 18%;
+
+  animation-delay: -1s;
+}
+
+
+/* Purple — center/right */
+
+.work-light-point--two {
+  left: 72%;
+  top: 31%;
+
+  animation-delay: -4s;
+
+  transform: scale(0.78);
+}
+
+
+/* Purple — lower left */
+
+.work-light-point--three {
+  left: 27%;
+  bottom: 18%;
+
+  animation-delay: -2.5s;
+
+  transform: scale(0.65);
+}
+
+
+/* Blue — upper right */
+
+.work-light-point--four {
+  right: 14%;
+  top: 16%;
+
+  animation-delay: -5s;
+
+  transform: scale(0.82);
+}
+
+
+/* Blue — lower right */
+
+.work-light-point--five {
+  right: 23%;
+  bottom: 24%;
+
+  animation-delay: -3.5s;
+
+  transform: scale(0.62);
+}
+
+
+/* Tiny — upper middle */
+
+.work-light-point--six {
+  left: 46%;
+  top: 12%;
+
+  animation-delay: -2s;
+}
+
+
+/* Tiny — middle left */
+
+.work-light-point--seven {
+  left: 8%;
+  top: 52%;
+
+  animation-delay: -6s;
+}
+
+
+/* Tiny — lower middle */
+
+.work-light-point--eight {
+  left: 58%;
+  bottom: 13%;
+
+  animation-delay: -4.5s;
+}
+
+
+/* =========================================================
+   FLOATING MOTION
+   ========================================================= */
+
+@keyframes work-light-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.45;
+  }
+
+  50% {
+    transform:
+      translate3d(4px, -8px, 0)
+      scale(1.18);
+
+    opacity: 0.82;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .work-light-point--purple {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(221, 214, 254, 0.92) 18%,
+      rgba(167, 139, 250, 0.65) 40%,
+      rgba(124, 58, 237, 0.22) 68%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 11px rgba(167, 139, 250, 0.50),
+    0 0 24px rgba(124, 58, 237, 0.24);
+
+  opacity: 0.82;
+}
+
+
+html.dark .work-light-point--blue {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(219, 234, 254, 0.92) 18%,
+      rgba(96, 165, 250, 0.65) 40%,
+      rgba(59, 130, 246, 0.22) 68%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 11px rgba(96, 165, 250, 0.50),
+    0 0 24px rgba(59, 130, 246, 0.24);
+
+  opacity: 0.78;
+}
+
+
+html.dark .work-light-point--tiny {
+  background:
+    rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.42),
+    0 0 12px rgba(167, 139, 250, 0.25);
+
+  opacity: 0.52;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .work-light-point {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .work-light-point--one {
+    left: 10%;
+    top: 20%;
+  }
+
+  .work-light-point--two {
+    left: 82%;
+    top: 34%;
+  }
+
+  .work-light-point--three {
+    left: 18%;
+    bottom: 20%;
+  }
+
+  .work-light-point--four {
+    right: 10%;
+    top: 18%;
+  }
+
+  .work-light-point--five {
+    right: 16%;
+    bottom: 25%;
+  }
+
+  .work-light-point--six {
+    left: 48%;
+    top: 11%;
+  }
+
+  .work-light-point--seven {
+    left: 7%;
+    top: 55%;
+  }
+
+  .work-light-point--eight {
+    left: 62%;
+    bottom: 15%;
+  }
+}

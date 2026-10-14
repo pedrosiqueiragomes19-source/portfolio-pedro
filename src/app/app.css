@@ -1,0 +1,340 @@
+/* =========================================================
+   SECTION WAVES
+   ========================================================= */
+
+.section-wave {
+  position: relative;
+
+  width: 100%;
+  height: 150px;
+
+  margin-top: -1px;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  background: #F9F8FC;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   ATMOSPHERE
+   ========================================================= */
+
+/* =========================================================
+   ATMOSPHERE
+   ========================================================= */
+
+.section-wave::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   WAVES WITH ATMOSPHERE
+   ========================================================= */
+
+/* Hero → About */
+
+.section-wave--hero-about::before {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(150, 150, 160, 0.10) 0%,
+    rgba(150, 150, 160, 0.06) 30%,
+    rgba(150, 150, 160, 0) 72%
+  );
+}
+
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
+.section-wave--hero-about {
+  height: 150px;
+}
+
+.section-wave--about-work {
+  height: 115px;
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.section-wave__svg {
+  position: absolute;
+
+  left: -2%;
+  top: -10%;
+
+  width: 104%;
+  height: 170%;
+
+  display: block;
+
+  overflow: visible;
+
+  transform: translate3d(0, 0, 0);
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+.section-wave__back {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  opacity: 0.95;
+
+  animation:
+    wave-back-float
+    6.5s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   MIDDLE
+   ========================================================= */
+
+.section-wave__middle {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  opacity: 0.95;
+
+  animation:
+    wave-middle-float
+    7.5s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay: -2.5s;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   FRONT
+   ========================================================= */
+
+.section-wave__main {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  animation:
+    wave-front-float
+    7s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay: -1.5s;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   BACK ANIMATION
+   ========================================================= */
+
+@keyframes wave-back-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(-18px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(5px, -5px, 0)
+      scaleY(1.035);
+  }
+
+  50% {
+    transform:
+      translate3d(22px, 3px, 0)
+      scaleY(0.965);
+  }
+
+  75% {
+    transform:
+      translate3d(4px, -4px, 0)
+      scaleY(1.025);
+  }
+}
+
+
+/* =========================================================
+   MIDDLE ANIMATION
+   ========================================================= */
+
+@keyframes wave-middle-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(18px, 1px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-5px, -5px, 0)
+      scaleY(0.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, 3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, -4px, 0)
+      scaleY(0.975);
+  }
+}
+
+
+/* =========================================================
+   FRONT ANIMATION
+   ========================================================= */
+
+@keyframes wave-front-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(12px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-7px, 4px, 0)
+      scaleY(1.025);
+  }
+
+  50% {
+    transform:
+      translate3d(-20px, -4px, 0)
+      scaleY(0.965);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, 3px, 0)
+      scaleY(1.02);
+  }
+}
+
+
+/* =========================================================
+   HERO → ABOUT
+   ========================================================= */
+
+.section-wave--hero-about .section-wave__back {
+  animation-duration: 5.5s;
+}
+
+.section-wave--hero-about .section-wave__middle {
+  animation-duration: 6.5s;
+}
+
+.section-wave--hero-about .section-wave__main {
+  animation-duration: 6s;
+}
+
+
+/* =========================================================
+   ABOUT → WORK
+   ========================================================= */
+
+html.dark .section-wave--about-work .section-wave__main {
+  fill: var(--background);
+}
+
+html.dark .section-wave--about-work .section-wave__back {
+  opacity: 0.95;
+}
+
+html.dark .section-wave--about-work .section-wave__middle {
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .section-wave__back,
+  .section-wave__middle,
+  .section-wave__main {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .section-wave {
+    height: 82px;
+  }
+
+  .section-wave--hero-about {
+    height: 96px;
+  }
+
+  .section-wave--about-work {
+    height: 74px;
+  }
+
+  .section-wave__svg {
+    left: -6%;
+    width: 112%;
+    height: 122%;
+  }
+
+  .section-wave__back {
+    animation-duration: 5.5s;
+  }
+
+  .section-wave__middle {
+    animation-duration: 6.5s;
+  }
+
+  .section-wave__main {
+    animation-duration: 6s;
+  }
+}

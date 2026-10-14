@@ -1,0 +1,37 @@
+# Dependências
+node_modules/
+/node_modules
+/api/node_modules
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+/api/.env
+
+# Build e compilação
+dist/
+/dist
+build/
+/build
+/tmp
+/out-tsc
+/.angular
+
+# Deploy Vercel
+.vercel/
+/.vercel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editores e sistema
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

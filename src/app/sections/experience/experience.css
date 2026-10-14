@@ -1,0 +1,1773 @@
+.experience-section {
+--experience-scroll: 0;
+--experience-progress: 0%;
+
+position: relative;
+isolation: isolate;
+
+background: var(--background);
+color: var(--foreground);
+
+overflow: hidden;
+
+transition:
+background-color 500ms ease,
+color 500ms ease;
+}
+
+/* =========================================================
+BACKGROUND WORD
+========================================================= */
+
+.experience-background {
+position: absolute;
+
+inset: 0;
+
+display: flex;
+
+align-items: center;
+justify-content: center;
+
+pointer-events: none;
+
+overflow: hidden;
+
+z-index: 0;
+}
+
+.experience-background-word {
+position: absolute;
+
+left: 50%;
+top: 48%;
+
+transform:
+translate(-50%, -50%)
+translateY(
+calc(var(--experience-scroll) * -28px)
+);
+
+font-family:
+Inter,
+ui-sans-serif,
+system-ui,
+sans-serif;
+
+font-size:
+clamp(6rem, 16vw, 14rem);
+
+font-weight: 700;
+
+line-height: 0.8;
+
+letter-spacing: -0.09em;
+
+white-space: nowrap;
+
+color:
+color-mix(
+in srgb,
+var(--primary) 3%,
+transparent
+);
+
+user-select: none;
+
+transition:
+color 500ms ease;
+}
+
+/* =========================================================
+MAIN ATMOSPHERE ORBS
+========================================================= */
+
+.experience-orb {
+position: absolute;
+
+pointer-events: none;
+
+border-radius: 9999px;
+
+z-index: 2;
+
+opacity: 1;
+
+animation: none;
+
+transition:
+opacity 700ms ease,
+background 700ms ease;
+}
+
+.experience-orb--purple {
+width: 230px;
+height: 230px;
+
+left: -70px;
+top: 20%;
+
+background:
+radial-gradient(
+circle at center,
+rgba(124, 58, 237, 0.10) 0%,
+rgba(124, 58, 237, 0.05) 28%,
+rgba(124, 58, 237, 0.025) 48%,
+transparent 72%
+);
+
+filter: blur(35px);
+}
+
+.experience-orb--blue {
+width: 220px;
+height: 220px;
+
+right: -65px;
+bottom: 18%;
+
+background:
+radial-gradient(
+circle at center,
+rgba(96, 165, 250, 0.09) 0%,
+rgba(96, 165, 250, 0.045) 28%,
+rgba(96, 165, 250, 0.02) 48%,
+transparent 72%
+);
+
+filter: blur(35px);
+}
+
+/* =========================================================
+MINI ORBS
+========================================================= */
+
+.experience-mini-orbs {
+position: absolute;
+
+inset: 0;
+
+pointer-events: none;
+
+z-index: 2;
+
+overflow: hidden;
+}
+
+.experience-mini-orb {
+position: absolute;
+
+width: 7px;
+height: 7px;
+
+border-radius: 50%;
+
+ background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 1) 0%,
+    rgba(124, 58, 237, 0.65) 35%,
+    rgba(124, 58, 237, 0.18) 65%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 12px rgba(167, 139, 250, 0.35),
+    0 0 28px rgba(124, 58, 237, 0.18);
+
+opacity: 0.65;
+
+animation:
+experience-mini-orb-float
+8s
+ease-in-out
+infinite;
+}
+
+.experience-mini-orb--one {
+left: 14%;
+top: 17%;
+
+width: 5px;
+height: 5px;
+
+animation-duration: 7s;
+}
+
+.experience-mini-orb--two {
+left: 78%;
+top: 20%;
+
+width: 6px;
+height: 6px;
+
+animation-duration: 9s;
+
+animation-delay: -2s;
+}
+
+.experience-mini-orb--three {
+left: 90%;
+top: 43%;
+
+width: 4px;
+height: 4px;
+
+animation-duration: 7.5s;
+
+animation-delay: -4s;
+}
+
+.experience-mini-orb--four {
+left: 23%;
+top: 57%;
+
+width: 6px;
+height: 6px;
+
+animation-duration: 8.5s;
+
+animation-delay: -3s;
+}
+
+.experience-mini-orb--five {
+left: 72%;
+top: 67%;
+
+width: 5px;
+height: 5px;
+
+animation-duration: 9.5s;
+
+animation-delay: -5s;
+}
+
+.experience-mini-orb--six {
+left: 47%;
+top: 78%;
+
+width: 4px;
+height: 4px;
+
+animation-duration: 7s;
+
+animation-delay: -1s;
+}
+
+@keyframes experience-mini-orb-float {
+0%,
+100% {
+transform:
+translate3d(0, 0, 0);
+
+
+opacity: 0.32;
+
+
+}
+
+50% {
+transform:
+translate3d(0, -7px, 0);
+
+
+opacity: 0.65;
+
+
+}
+}
+
+/* =========================================================
+EXTRA LIGHT FIELD
+========================================================= */
+
+.experience-section::before {
+content: "";
+
+position: absolute;
+
+width: 300px;
+height: 300px;
+
+left: 42%;
+top: 38%;
+
+border-radius: 9999px;
+
+pointer-events: none;
+
+background:
+radial-gradient(
+circle,
+rgba(124, 58, 237, 0.028),
+transparent 70%
+);
+
+filter: blur(40px);
+
+z-index: 1;
+
+opacity: 0.9;
+
+transition:
+opacity 500ms ease;
+}
+
+/* =========================================================
+DISCREET LIGHT FIELD
+========================================================= */
+
+.experience-light-field {
+position: absolute;
+
+inset: 0;
+
+pointer-events: none;
+
+z-index: 3;
+
+opacity: 0.45;
+}
+
+.experience-light {
+position: absolute;
+
+width: 2px;
+height: 2px;
+
+border-radius: 50%;
+
+background:
+rgba(124, 58, 237, 0.25);
+
+box-shadow:
+0 0 12px rgba(124, 58, 237, 0.12);
+
+animation:
+experience-light-float
+7s
+ease-in-out
+infinite;
+}
+
+.experience-light--one {
+left: 18%;
+top: 28%;
+}
+
+.experience-light--two {
+left: 72%;
+top: 22%;
+
+animation-delay: -2s;
+}
+
+.experience-light--three {
+left: 84%;
+top: 58%;
+
+animation-delay: -4s;
+}
+
+.experience-light--four {
+left: 28%;
+top: 68%;
+
+animation-delay: -1s;
+}
+
+.experience-light--five {
+left: 58%;
+top: 76%;
+
+animation-delay: -5s;
+}
+
+@keyframes experience-light-float {
+0%,
+100% {
+transform:
+translate3d(0, 0, 0);
+
+
+opacity: 0.25;
+
+
+}
+
+50% {
+transform:
+translate3d(0, -8px, 0);
+
+
+opacity: 0.6;
+
+
+}
+}
+
+/* =========================================================
+DARK MODE — BACKGROUND
+========================================================= */
+
+html.dark .experience-section::before {
+opacity: 1;
+
+background:
+radial-gradient(
+circle,
+rgba(167, 139, 250, 0.055),
+transparent 70%
+);
+}
+
+html.dark .experience-orb--purple {
+background:
+radial-gradient(
+circle at center,
+rgba(139, 92, 246, 0.14) 0%,
+rgba(124, 58, 237, 0.07) 28%,
+rgba(124, 58, 237, 0.03) 48%,
+transparent 72%
+);
+
+opacity: 1;
+}
+
+html.dark .experience-orb--blue {
+background:
+radial-gradient(
+circle at center,
+rgba(96, 165, 250, 0.11) 0%,
+rgba(96, 165, 250, 0.055) 28%,
+rgba(96, 165, 250, 0.025) 48%,
+transparent 72%
+);
+
+opacity: 1;
+}
+
+html.dark .experience-mini-orb {
+background:
+radial-gradient(
+circle,
+rgba(167, 139, 250, 0.35) 0%,
+rgba(167, 139, 250, 0.14) 42%,
+transparent 75%
+);
+
+box-shadow:
+0 0 14px rgba(167, 139, 250, 0.10);
+
+opacity: 0.6;
+}
+
+html.dark .experience-background-word {
+color:
+rgba(167, 139, 250, 0.025);
+}
+
+html.dark .experience-light {
+background:
+rgba(167, 139, 250, 0.32);
+
+box-shadow:
+0 0 14px rgba(167, 139, 250, 0.16);
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.experience-header {
+position: relative;
+
+z-index: 10;
+}
+
+.experience-label {
+opacity: 0;
+
+transform:
+translateY(18px);
+}
+
+/* =========================================================
+HEADER LINE
+========================================================= */
+
+.experience-header-line {
+display: block;
+
+width: 48px;
+
+background:
+rgba(124, 58, 237, 0.28);
+
+transform-origin: left center;
+
+transition:
+width 500ms ease,
+opacity 500ms ease,
+background 500ms ease;
+}
+
+.experience-label:hover .experience-header-line {
+width: 72px;
+
+opacity: 0.75;
+}
+
+html.dark .experience-header-line {
+background:
+rgba(167, 139, 250, 0.34);
+}
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.experience-title {
+text-wrap: balance;
+
+color: var(--foreground);
+
+transition:
+color 500ms ease;
+}
+
+.experience-word {
+display: inline-block;
+
+margin-right: 0.18em;
+
+opacity: 0;
+
+transform:
+translateY(28px);
+}
+
+/* =========================================================
+INTRO
+========================================================= */
+
+.experience-intro {
+color: var(--muted);
+
+opacity: 0;
+
+transform:
+translateY(22px);
+
+transition:
+color 500ms ease;
+}
+
+/* =========================================================
+PROCESS
+========================================================= */
+
+.experience-process {
+position: relative;
+
+max-width: 900px;
+
+margin-top: 110px;
+
+margin-left: auto;
+margin-right: auto;
+
+padding-bottom: 30px;
+
+z-index: 5;
+}
+
+/* =========================================================
+PROGRESS LINE
+========================================================= */
+
+.experience-progress {
+position: absolute;
+
+left: 72px;
+
+top: 0;
+bottom: 0;
+
+width: 1px;
+
+z-index: 1;
+}
+
+.experience-progress-track {
+position: absolute;
+
+inset: 0;
+
+background:
+color-mix(
+in srgb,
+var(--foreground) 8%,
+transparent
+);
+
+transition:
+background 500ms ease;
+}
+
+.experience-progress-fill {
+position: absolute;
+
+left: 0;
+top: 0;
+
+width: 1px;
+
+height: 0%;
+
+background:
+linear-gradient(
+to bottom,
+#7c3aed,
+#6366f1,
+#60a5fa
+);
+
+box-shadow:
+0 0 14px rgba(124, 58, 237, 0.18);
+}
+
+html.dark .experience-progress-track {
+background:
+rgba(255, 255, 255, 0.075);
+}
+
+html.dark .experience-progress-fill {
+box-shadow:
+0 0 16px rgba(167, 139, 250, 0.24),
+0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+/* =========================================================
+STEP
+========================================================= */
+
+.experience-step {
+position: relative;
+
+display: grid;
+
+grid-template-columns:
+145px
+minmax(0, 1fr);
+
+min-height: 230px;
+
+opacity: 0.25;
+
+transition:
+opacity 500ms ease,
+transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-step + .experience-step {
+margin-top: 10px;
+}
+
+/* =========================================================
+STEP NUMBER
+========================================================= */
+
+.experience-step-number {
+position: relative;
+
+display: flex;
+
+align-items: flex-start;
+justify-content: center;
+
+padding-top: 4px;
+
+z-index: 3;
+}
+
+.experience-step-number::before {
+content: "";
+
+position: absolute;
+
+left: 50%;
+top: 3px;
+
+width: 13px;
+height: 13px;
+
+transform:
+translateX(-50%);
+
+border-radius: 50%;
+
+background:
+var(--background);
+
+border:
+1px solid rgba(124, 58, 237, 0.22);
+
+box-shadow:
+0 0 0 5px rgba(124, 58, 237, 0.025);
+
+transition:
+width 400ms ease,
+height 400ms ease,
+border-color 400ms ease,
+background 400ms ease,
+box-shadow 400ms ease;
+}
+
+.experience-step-number span {
+position: absolute;
+
+top: 28px;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+font-size: 9px;
+
+font-weight: 600;
+
+letter-spacing: 0.14em;
+
+color:
+color-mix(
+in srgb,
+var(--muted) 48%,
+transparent
+);
+
+transition:
+color 400ms ease;
+}
+
+/* =========================================================
+ACTIVE STEP
+========================================================= */
+
+.experience-step.is-active {
+opacity: 1;
+
+transform:
+translateX(5px);
+}
+
+.experience-step.is-active
+.experience-step-number::before {
+width: 17px;
+height: 17px;
+
+background:
+linear-gradient(
+135deg,
+#7c3aed,
+#6366f1
+);
+
+border-color:
+rgba(124, 58, 237, 0.35);
+
+box-shadow:
+0 0 0 6px rgba(124, 58, 237, 0.07),
+0 0 22px rgba(124, 58, 237, 0.18);
+}
+
+/* =========================================================
+DARK MODE — ACTIVE STEP
+========================================================= */
+
+html.dark .experience-step-number::before {
+background:
+var(--background);
+
+border-color:
+rgba(167, 139, 250, 0.24);
+
+box-shadow:
+0 0 0 5px rgba(167, 139, 250, 0.035);
+}
+
+html.dark .experience-step.is-active
+.experience-step-number::before {
+background:
+linear-gradient(
+135deg,
+#8b5cf6,
+#6366f1
+);
+
+border-color:
+rgba(167, 139, 250, 0.42);
+
+box-shadow:
+0 0 0 6px rgba(167, 139, 250, 0.085),
+0 0 24px rgba(139, 92, 246, 0.24);
+}
+
+/* =========================================================
+STEP CONTENT
+========================================================= */
+
+.experience-step-content {
+padding:
+0
+20px
+55px
+50px;
+}
+
+/* =========================================================
+STEP META
+========================================================= */
+
+.experience-step-meta {
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+margin-bottom: 14px;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+font-size: 9px;
+
+font-weight: 600;
+
+letter-spacing: 0.16em;
+
+color:
+color-mix(
+in srgb,
+var(--muted) 42%,
+transparent
+);
+
+transition:
+color 400ms ease;
+}
+
+.experience-step-meta span:first-child {
+color:
+rgba(124, 58, 237, 0.45);
+}
+
+.experience-step.is-active
+.experience-step-meta {
+color:
+color-mix(
+in srgb,
+var(--muted) 72%,
+transparent
+);
+}
+
+html.dark .experience-step-meta span:first-child {
+color:
+rgba(167, 139, 250, 0.58);
+}
+
+html.dark .experience-step.is-active
+.experience-step-meta {
+color:
+rgba(170, 163, 178, 0.78);
+}
+
+/* =========================================================
+STEP HEADING
+========================================================= */
+
+.experience-step-content h3 {
+margin: 0;
+
+color:
+color-mix(
+in srgb,
+var(--foreground) 58%,
+transparent
+);
+
+font-size:
+clamp(1.55rem, 3vw, 2.35rem);
+
+line-height: 1.08;
+
+font-weight: 600;
+
+letter-spacing: -0.045em;
+
+transition:
+color 450ms ease,
+transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-step.is-active
+.experience-step-content h3 {
+color:
+var(--foreground);
+
+transform:
+translateX(4px);
+}
+
+html.dark .experience-step-content h3 {
+color:
+rgba(243, 240, 247, 0.52);
+}
+
+html.dark .experience-step.is-active
+.experience-step-content h3 {
+color:
+#f3f0f7;
+}
+
+/* =========================================================
+STEP DESCRIPTION
+========================================================= */
+
+.experience-step-content p {
+max-width: 500px;
+
+margin:
+14px 0 0;
+
+color:
+color-mix(
+in srgb,
+var(--muted) 62%,
+transparent
+);
+
+font-size: 13px;
+
+line-height: 1.75;
+
+transition:
+color 450ms ease;
+}
+
+.experience-step.is-active
+.experience-step-content p {
+color:
+var(--muted);
+}
+
+/* =========================================================
+COMPANY
+========================================================= */
+
+.experience-step-content
+.experience-company {
+color:
+color-mix(
+in srgb,
+var(--primary) 72%,
+var(--muted)
+);
+
+font-weight: 500;
+
+transition:
+color 450ms ease;
+}
+
+html.dark .experience-step-content
+.experience-company {
+color:
+#c4b5fd;
+}
+
+/* =========================================================
+TECHNOLOGY TAGS
+========================================================= */
+
+.experience-tags {
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 7px;
+
+margin-top: 20px;
+}
+
+.experience-tags span {
+display: inline-flex;
+
+align-items: center;
+justify-content: center;
+
+padding:
+6px
+9px;
+
+border:
+1px solid
+color-mix(
+in srgb,
+var(--border) 90%,
+transparent
+);
+
+background:
+color-mix(
+in srgb,
+var(--surface) 72%,
+transparent
+);
+
+color:
+color-mix(
+in srgb,
+var(--muted) 85%,
+transparent
+);
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+font-size: 8px;
+
+font-weight: 500;
+
+letter-spacing: 0.08em;
+
+text-transform: uppercase;
+
+transition:
+color 300ms ease,
+border-color 300ms ease,
+background 300ms ease,
+transform 300ms ease;
+}
+
+.experience-tags span:hover {
+color:
+var(--primary);
+
+border-color:
+color-mix(
+in srgb,
+var(--primary) 24%,
+var(--border)
+);
+
+transform:
+translateY(-2px);
+}
+
+html.dark .experience-tags span {
+background:
+rgba(255, 255, 255, 0.025);
+
+border-color:
+rgba(255, 255, 255, 0.08);
+
+color:
+rgba(170, 163, 178, 0.82);
+}
+
+html.dark .experience-tags span:hover {
+background:
+rgba(167, 139, 250, 0.07);
+
+border-color:
+rgba(167, 139, 250, 0.24);
+
+color:
+#c4b5fd;
+}
+
+/* =========================================================
+COUNTER
+========================================================= */
+
+.experience-counter {
+position: absolute;
+
+right: 0;
+top: 50%;
+
+transform:
+translateY(-50%);
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+font-size: 9px;
+
+font-weight: 500;
+
+letter-spacing: 0.12em;
+
+color:
+color-mix(
+in srgb,
+var(--muted) 35%,
+transparent
+);
+
+transition:
+color 500ms ease;
+}
+
+.experience-counter-current {
+color:
+var(--primary);
+
+transition:
+color 300ms ease;
+}
+
+.experience-counter-divider {
+opacity: 0.4;
+}
+
+/* =========================================================
+BOTTOM NOTE
+========================================================= */
+
+.experience-bottom {
+display: flex;
+
+align-items: center;
+
+gap: 18px;
+
+margin-top: 65px;
+
+opacity: 0;
+
+transform:
+translateY(18px);
+}
+
+.experience-bottom-line {
+height: 1px;
+
+flex: 1;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(124, 58, 237, 0.16)
+);
+
+transition:
+background 500ms ease;
+}
+
+.experience-bottom-line:last-child {
+background:
+linear-gradient(
+90deg,
+rgba(124, 58, 237, 0.16),
+transparent
+);
+}
+
+.experience-bottom-text {
+flex-shrink: 0;
+
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+
+font-size: 9px;
+
+font-weight: 500;
+
+letter-spacing: 0.15em;
+
+text-transform: uppercase;
+
+color:
+color-mix(
+in srgb,
+var(--muted) 48%,
+transparent
+);
+
+transition:
+color 500ms ease;
+}
+
+html.dark .experience-bottom-line {
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(167, 139, 250, 0.18)
+);
+}
+
+html.dark .experience-bottom-line:last-child {
+background:
+linear-gradient(
+90deg,
+rgba(167, 139, 250, 0.18),
+transparent
+);
+}
+
+html.dark .experience-bottom-text {
+color:
+rgba(170, 163, 178, 0.55);
+}
+
+/* =========================================================
+WAVE — EXPERIENCE → CONTACT
+========================================================= */
+
+.experience-wave {
+position: absolute;
+
+left: 0;
+bottom: -39px;
+
+width: 100%;
+height: 150px;
+
+overflow: hidden;
+
+pointer-events: none;
+
+z-index: 40;
+
+background: transparent;
+}
+
+.experience-wave svg {
+position: absolute;
+
+left: -4%;
+top: -12%;
+
+width: 108%;
+height: 145%;
+
+display: block;
+
+overflow: visible;
+
+background: transparent;
+
+transform:
+translate3d(0, 0, 0);
+}
+
+.experience-wave__back,
+.experience-wave__middle,
+.experience-wave__main {
+transform-box: fill-box;
+
+transform-origin:
+center center;
+
+will-change: transform;
+}
+
+.experience-wave__back {
+opacity: 0.9;
+
+animation:
+experience-wave-back 7s
+cubic-bezier(.45, 0, .55, 1)
+infinite;
+}
+
+.experience-wave__middle {
+opacity: 0.95;
+
+animation:
+experience-wave-middle 7.5s
+cubic-bezier(.45, 0, .55, 1)
+infinite;
+
+animation-delay: -2.5s;
+}
+
+.experience-wave__main {
+animation:
+experience-wave-main 8s
+cubic-bezier(.45, 0, .55, 1)
+infinite;
+}
+
+/* =========================================================
+WAVE ANIMATIONS
+========================================================= */
+
+@keyframes experience-wave-back {
+0%,
+100% {
+transform:
+translate3d(-18px, 2px, 0)
+scaleY(1);
+}
+
+25% {
+transform:
+translate3d(4px, -5px, 0)
+scaleY(1.035);
+}
+
+50% {
+transform:
+translate3d(20px, 3px, 0)
+scaleY(.965);
+}
+
+75% {
+transform:
+translate3d(5px, -4px, 0)
+scaleY(1.025);
+}
+}
+
+@keyframes experience-wave-middle {
+0%,
+100% {
+transform:
+translate3d(18px, 1px, 0)
+scaleY(1);
+}
+
+25% {
+transform:
+translate3d(-5px, -5px, 0)
+scaleY(.965);
+}
+
+50% {
+transform:
+translate3d(-22px, 3px, 0)
+scaleY(1.035);
+}
+
+75% {
+transform:
+translate3d(-4px, -4px, 0)
+scaleY(.975);
+}
+}
+
+@keyframes experience-wave-main {
+0%,
+100% {
+transform:
+translate3d(15px, 0, 0)
+scaleY(1);
+}
+
+25% {
+transform:
+translate3d(-6px, 4px, 0)
+scaleY(.965);
+}
+
+50% {
+transform:
+translate3d(-22px, -3px, 0)
+scaleY(1.035);
+}
+
+75% {
+transform:
+translate3d(-5px, 3px, 0)
+scaleY(.975);
+}
+}
+
+/* =========================================================
+WAVE — DARK MODE
+========================================================= */
+
+html.dark .experience-wave__back {
+opacity: 0.55;
+}
+
+html.dark .experience-wave__middle {
+opacity: 0.45;
+}
+
+.experience-wave__main {
+fill: var(--background);
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+.experience-process {
+margin-top: 90px;
+
+
+max-width: 800px;
+
+
+}
+
+.experience-step {
+grid-template-columns:
+115px
+minmax(0, 1fr);
+}
+
+.experience-progress {
+left: 57px;
+}
+
+.experience-step-content {
+padding-left: 35px;
+}
+
+.experience-counter {
+display: none;
+}
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+.experience-section {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+
+    .experience-process {
+    margin-top: 75px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+
+  .experience-step {
+    min-height: 235px;
+  }
+
+  .experience-step + .experience-step {
+    margin-top: 10px;
+  }
+
+  .experience-step-content {
+    padding:
+      0
+      20px
+      55px
+      25px;
+  }
+
+  .experience-bottom {
+    margin-top: 50px;
+  }
+
+.experience-background-word {
+font-size: 7rem;
+
+
+top: 45%;
+
+
+}
+
+/* MAIN ORBS */
+
+.experience-orb--purple {
+width: 145px;
+height: 145px;
+
+
+left: -35px;
+top: 18%;
+
+filter: blur(27px);
+
+
+}
+
+.experience-orb--blue {
+width: 140px;
+height: 140px;
+
+
+right: -30px;
+bottom: 16%;
+
+filter: blur(27px);
+
+
+}
+
+/* MINI ORBS */
+
+.experience-mini-orb {
+width: 4px;
+height: 4px;
+
+
+opacity: 0.42;
+
+
+}
+
+.experience-mini-orb--one {
+left: 10%;
+top: 16%;
+}
+
+.experience-mini-orb--two {
+left: 84%;
+top: 23%;
+}
+
+.experience-mini-orb--three {
+left: 91%;
+top: 45%;
+}
+
+.experience-mini-orb--four {
+left: 16%;
+top: 58%;
+}
+
+.experience-mini-orb--five {
+left: 79%;
+top: 70%;
+}
+
+.experience-mini-orb--six {
+left: 48%;
+top: 80%;
+}
+
+.experience-light-field {
+opacity: 0.3;
+}
+
+.experience-process {
+  position: relative;
+
+  max-width: 900px;
+
+  margin-top: 145px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-bottom: 50px;
+
+  z-index: 5;
+}
+
+.experience-progress {
+left: 17px;
+}
+
+.experience-step {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  min-height: 280px;
+
+  opacity: 0.25;
+
+  transition:
+    opacity 500ms ease,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-step + .experience-step {
+margin-top: 35px;
+}
+
+.experience-step-number {
+justify-content: flex-start;
+}
+
+.experience-step-number::before {
+left: 17px;
+}
+
+.experience-step-number span {
+display: none;
+}
+
+.experience-step-content {
+  padding:
+    0
+    0px
+    75px
+    0px;
+}
+
+.experience-step-meta {
+margin-bottom: 12px;
+
+
+font-size: 8px;
+
+
+}
+
+.experience-step-content h3 {
+font-size: 1.45rem;
+}
+
+.experience-step-content p {
+font-size: 12px;
+
+
+line-height: 1.7;
+
+
+}
+
+.experience-tags {
+gap: 5px;
+
+
+margin-top: 16px;
+
+
+}
+
+.experience-tags span {
+padding:
+5px
+7px;
+
+
+font-size: 7px;
+
+
+}
+
+.experience-bottom {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 90px;
+
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+}
+
+.experience-bottom-text {
+font-size: 7px;
+
+
+letter-spacing: 0.09em;
+
+text-align: center;
+
+
+}
+
+/* WAVE */
+
+.experience-wave {
+height: 78px;
+}
+
+.experience-wave svg {
+left: -8%;
+
+
+width: 116%;
+
+height: 135%;
+
+
+}
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.experience-background-word,
+.experience-orb,
+.experience-mini-orb,
+.experience-light,
+.experience-label,
+.experience-word,
+.experience-intro,
+.experience-step,
+.experience-step-content h3,
+.experience-bottom,
+.experience-wave__back,
+.experience-wave__middle,
+.experience-wave__main {
+transition: none !important;
+
+
+animation: none !important;
+
+transform: none !important;
+
+
+}
+
+.experience-step {
+opacity: 1;
+}
+
+.experience-progress-fill {
+transition: none !important;
+}
+}

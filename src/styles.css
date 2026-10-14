@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=General+Sans:wght@400;500;600;700&display=swap');
+
+@import 'primeicons/primeicons.css';
+@import 'tailwindcss';
+
+
+/* =========================================================
+   THEME — LIGHT
+   ========================================================= */
+
+:root {
+  --background: #faf9fc;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+
+  --foreground: #17131c;
+  --muted: #706a78;
+  --border: #e7e2ec;
+
+  --primary: #7c3aed;
+  --primary-dark: #4c1d95;
+  --primary-light: #a78bfa;
+  --primary-soft: rgba(124, 58, 237, 0.10);
+
+  --page-reveal: #17131c;
+
+  --nav-background: rgba(250, 249, 252, 0.78);
+  --nav-border: rgba(23, 19, 28, 0.07);
+
+  --switch-background: rgba(255, 255, 255, 0.55);
+  --switch-border: rgba(23, 19, 28, 0.14);
+
+  --selection-background: rgba(124, 58, 237, 0.15);
+}
+
+
+/* =========================================================
+   THEME — DARK
+   ========================================================= */
+
+html.dark {
+  --background: #15121a;
+
+  --surface: #1c1822;
+
+  --surface-elevated: #211c29;
+
+  --foreground: #f3f0f7;
+  --muted: #aaa3b2;
+  --border: rgba(255, 255, 255, 0.09);
+
+  --primary: #a78bfa;
+  --primary-dark: #7c3aed;
+  --primary-light: #c4b5fd;
+  --primary-soft: rgba(167, 139, 250, 0.14);
+
+  --page-reveal: #ffffff;
+
+  --nav-background: linear-gradient(
+    135deg,
+    rgba(38, 32, 48, 0.94),
+    rgba(29, 25, 36, 0.92)
+  );
+
+  --nav-border: rgba(255, 255, 255, 0.10);
+
+  --switch-background: rgba(28, 24, 34, 0.65);
+  --switch-border: rgba(255, 255, 255, 0.14);
+
+  --selection-background: rgba(167, 139, 250, 0.20);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+
+  background:
+    var(--background);
+
+  color:
+    var(--foreground);
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
+}
+
+
+body {
+  margin: 0;
+
+  min-height: 100%;
+
+  background:
+    var(--background);
+
+  color:
+    var(--foreground);
+
+  font-family:
+    'General Sans',
+    system-ui,
+    sans-serif;
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background:
+    var(--selection-background);
+
+  color:
+    var(--foreground);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY — FOCUS VISIBLE
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SURFACES
+   ========================================================= */
+
+.surface {
+  background:
+    var(--surface);
+
+  color:
+    var(--foreground);
+
+  transition:
+    background-color 500ms ease,
+    border-color 500ms ease,
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   SECTION WAVES
+   ========================================================= */
+
+.section-wave {
+  position: relative;
+
+  width: 100%;
+
+  height: 150px;
+
+  margin-top: 41px;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  background:
+    transparent;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   WAVE ATMOSPHERE
+   ========================================================= */
+
+.section-wave::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    transparent;
+}
+
+
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
+
+/* =========================================================
+   HERO → ABOUT
+   ========================================================= */
+
+.section-wave--hero-about {
+  height: 150px;
+}
+
+
+/* =========================================================
+   ABOUT → WORK
+   ========================================================= */
+
+.section-wave--about-work {
+  height: 150px;
+}
+
+
+/* =========================================================
+   WORK → SKILLS
+   SKILLS → EXPERIENCE
+   EXPERIENCE → CONTACT
+   ========================================================= */
+
+.section-wave--work-skills {
+  height: 150px;
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.section-wave__svg {
+  position: absolute;
+
+  left: -4%;
+
+  top: -12%;
+
+  width: 108%;
+
+  height: 145%;
+
+  display: block;
+
+  overflow: visible;
+
+  background:
+    transparent;
+
+  transform:
+    translate3d(0, 0, 0);
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   WAVE — BACK
+   ========================================================= */
+
+.section-wave__back {
+  transform-box:
+    fill-box;
+
+  transform-origin:
+    center center;
+
+  opacity:
+    0.9;
+
+  animation:
+    wave-back-float
+    6s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   WAVE — MIDDLE
+   ========================================================= */
+
+.section-wave__middle {
+  transform-box:
+    fill-box;
+
+  transform-origin:
+    center center;
+
+  opacity:
+    0.95;
+
+  animation:
+    wave-middle-float
+    7s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay:
+    -2.5s;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   WAVE — FRONT
+   ========================================================= */
+
+.section-wave__main {
+  transform-box:
+    fill-box;
+
+  transform-origin:
+    center center;
+
+  animation:
+    wave-front-float
+    7s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay:
+    -2.5s;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   BACK WAVE ANIMATION
+   ========================================================= */
+
+@keyframes wave-back-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(-18px, 2px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(4px, -5px, 0)
+      scaleY(1.035);
+  }
+
+  50% {
+    transform:
+      translate3d(20px, 3px, 0)
+      scaleY(0.965);
+  }
+
+  75% {
+    transform:
+      translate3d(5px, -4px, 0)
+      scaleY(1.025);
+  }
+}
+
+
+/* =========================================================
+   MIDDLE WAVE ANIMATION
+   ========================================================= */
+
+@keyframes wave-middle-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(18px, 1px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-5px, -5px, 0)
+      scaleY(0.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, 3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, -4px, 0)
+      scaleY(0.975);
+  }
+}
+
+
+/* =========================================================
+   FRONT WAVE ANIMATION
+   ========================================================= */
+
+@keyframes wave-front-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(15px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-6px, 4px, 0)
+      scaleY(0.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, -3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-5px, 3px, 0)
+      scaleY(0.975);
+  }
+}
+
+
+/* =========================================================
+   HERO → ABOUT
+   MORE EXPRESSIVE
+   ========================================================= */
+
+.section-wave--hero-about
+  .section-wave__back {
+  animation-duration:
+    5.5s;
+}
+
+
+.section-wave--hero-about
+  .section-wave__middle {
+  animation-duration:
+    6s;
+}
+
+
+.section-wave--hero-about
+  .section-wave__main {
+  animation-duration:
+    6.5s;
+}
+
+
+/* =========================================================
+   ABOUT → WORK
+   BALANCED
+   ========================================================= */
+
+.section-wave--about-work
+  .section-wave__back {
+  animation-duration:
+    6.5s;
+}
+
+
+.section-wave--about-work
+  .section-wave__middle {
+  animation-duration:
+    7s;
+}
+
+
+.section-wave--about-work
+  .section-wave__main {
+  animation-duration:
+    7.5s;
+}
+
+
+/* =========================================================
+   WORK → SKILLS
+   SKILLS → EXPERIENCE
+   CALMER
+   ========================================================= */
+
+.section-wave--work-skills
+  .section-wave__back {
+  animation-duration:
+    7s;
+}
+
+
+.section-wave--work-skills
+  .section-wave__middle {
+  animation-duration:
+    7.5s;
+}
+
+
+.section-wave--work-skills
+  .section-wave__main {
+  animation-duration:
+    8s;
+}
+
+
+/* =========================================================
+   DARK MODE — WAVES
+   ========================================================= */
+
+html.dark
+  .section-wave--about-work
+  .section-wave__back {
+  opacity:
+    0.55;
+}
+
+
+html.dark
+  .section-wave--about-work
+  .section-wave__middle {
+  opacity:
+    0.45;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior:
+      auto;
+  }
+
+
+  html,
+  body,
+  .surface {
+    transition:
+      none;
+  }
+
+
+  .section-wave__back,
+  .section-wave__middle,
+  .section-wave__main {
+    animation:
+      none !important;
+
+    transform:
+      none !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .section-wave {
+    height:
+      150px;
+  }
+
+
+  .section-wave--hero-about {
+    height:
+      150px;
+  }
+
+
+  .section-wave--about-work {
+    height:
+      150px;
+  }
+
+
+  .section-wave--work-skills {
+    height:
+      150px;
+  }
+
+
+  .section-wave__svg {
+    left:
+      -8%;
+
+    width:
+      116%;
+
+    height:
+      135%;
+  }
+
+
+  .section-wave__back {
+    animation-duration:
+      5.5s;
+  }
+
+
+  .section-wave__middle {
+    animation-duration:
+      6s;
+  }
+
+
+  .section-wave__main {
+    animation-duration:
+      6.5s;
+  }
+
+}
+
+/* ==================================================
+   THEME CIRCULAR REVEAL
+   ================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (view-transition-name: root) {
+
+    ::view-transition-group(root) {
+      animation-duration: 700ms;
+      animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    ::view-transition-old(root) {
+      animation: none;
+      z-index: 1;
+    }
+
+    ::view-transition-new(root) {
+      z-index: 2;
+
+      animation:
+        theme-circular-reveal
+        700ms
+        cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes theme-circular-reveal {
+      from {
+        clip-path: circle(
+          0px
+          at
+          var(--theme-transition-x)
+          var(--theme-transition-y)
+        );
+      }
+
+      to {
+        clip-path: circle(
+          var(--theme-transition-radius)
+          at
+          var(--theme-transition-x)
+          var(--theme-transition-y)
+        );
+      }
+    }
+  }
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}

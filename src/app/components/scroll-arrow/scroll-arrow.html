@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="scroll-arrow"
+  [class.scroll-arrow--hidden]="!isVisible"
+  [class.scroll-arrow--down]="direction === 'down'"
+  [class.scroll-arrow--up]="direction === 'up'"
+  [attr.aria-label]="direction === 'down' ? 'Scroll to contact' : 'Back to top'"
+  (click)="onArrowClick()"
+>
+  <span class="scroll-arrow__icon" aria-hidden="true">
+    <i
+      class="pi"
+      [class.pi-arrow-down]="direction === 'down'"
+      [class.pi-arrow-up]="direction === 'up'"
+    ></i>
+  </span>
+</button>

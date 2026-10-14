@@ -1,0 +1,104 @@
+/* =========================================
+   PAGE REVEAL
+   ========================================= */
+
+.page-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   PANELS
+   ========================================= */
+
+.reveal-panel {
+  height: 100%;
+  flex: 1;
+
+  background: var(--page-reveal);
+
+  transform: translateY(0);
+
+  animation:
+    reveal-panel
+    1s
+    cubic-bezier(0.76, 0, 0.24, 1)
+    forwards;
+}
+
+
+/* =========================================
+   ENTRADA SEQUENCIAL
+   ========================================= */
+
+.reveal-panel:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.reveal-panel:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.reveal-panel:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.reveal-panel:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.reveal-panel:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+
+/* =========================================
+   ANIMATION
+   ========================================= */
+
+@keyframes reveal-panel {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+
+/* =========================================
+   FINISHED
+   ========================================= */
+
+.page-reveal.is-finished {
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-panel {
+    animation: none;
+    transform: translateY(-100%);
+  }
+
+  .page-reveal {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,1405 @@
+/* ==================================================
+   HERO
+   ================================================== */
+
+.hero-section {
+  position: relative;
+  overflow-x: hidden;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 500ms ease;
+}
+
+
+/* ==================================================
+   HERO TEXT
+   ================================================== */
+
+.hero-title {
+  color: var(--foreground);
+
+  transition:
+    color 500ms ease;
+}
+
+.hero-description {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+.hero-eyebrow {
+  color: var(--primary);
+
+  transition:
+    color 500ms ease;
+}
+
+
+.hero-title-gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed 0%,
+      #8b5cf6 42%,
+      #60a5fa 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+}
+
+
+/* ==================================================
+   HERO ACTIONS
+   ================================================== */
+
+.hero-actions {
+  position: relative;
+}
+
+
+/* ==================================================
+   PRIMARY BUTTON
+   ================================================== */
+
+.hero-primary-button {
+  background: var(--foreground);
+  border: 1px solid var(--foreground);
+  color: var(--background);
+
+  transition:
+    background-color 450ms ease,
+    border-color 450ms ease,
+    color 450ms ease,
+    transform 300ms ease,
+    box-shadow 450ms ease;
+}
+
+.hero-primary-button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   PRIMARY BUTTON — CORNERS
+   ================================================== */
+
+.hero-button-corner {
+  border-color: var(--foreground);
+
+  transition:
+    border-color 500ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-button-corner--top-left {
+  border-left-width: 1px;
+  border-top-width: 1px;
+}
+
+.hero-button-corner--bottom-right {
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+
+/* ==================================================
+   SECONDARY BUTTON
+   ================================================== */
+
+.hero-contact-button {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+
+  transition:
+    background-color 500ms ease,
+    border-color 500ms ease,
+    color 500ms ease,
+    transform 300ms ease,
+    box-shadow 500ms ease;
+}
+
+.hero-contact-button:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--primary);
+}
+
+
+/* ==================================================
+   BACKGROUND ATMOSPHERE
+   ================================================== */
+
+.hero-section-atmosphere {
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(150, 150, 160, 0.10) 0%,
+      rgba(150, 150, 160, 0.055) 28%,
+      rgba(150, 150, 160, 0) 68%
+    );
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+.hero-section-purple-light {
+  border-radius: 9999px;
+
+  background: rgba(124, 58, 237, 0.045);
+
+  filter: blur(70px);
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+.hero-section-blue-light {
+  border-radius: 9999px;
+
+  background: rgba(59, 130, 246, 0.045);
+
+  filter: blur(75px);
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+
+/* ==================================================
+   FLOATING GROUND SHADOW
+   ================================================== */
+
+.hero-floating-ground {
+  width: 330px;
+  height: 58px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(124, 58, 237, 0.32) 0%,
+      rgba(124, 58, 237, 0.22) 20%,
+      rgba(124, 58, 237, 0.13) 40%,
+      rgba(124, 58, 237, 0.06) 58%,
+      rgba(124, 58, 237, 0) 78%
+    );
+
+  filter: blur(11px);
+
+  opacity: 1;
+
+  animation:
+    hero-ground-shadow-float
+    5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background 900ms ease,
+    opacity 700ms ease;
+}
+
+
+/* ==================================================
+   MAIN ATMOSPHERIC GLOW
+   ================================================== */
+
+.hero-visual,
+.hero-character-container,
+.hero-character-media {
+  background: transparent !important;
+}
+
+.hero-character-container {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.hero-character-media {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+
+  /* Performance Acceleration */
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  /* Blending / Soft Mask */
+  -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+  mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+}
+
+.hero-main-glow {
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%) translateZ(0);
+  will-change: transform;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.28) 0%,
+      rgba(217, 70, 239, 0.15) 30%,
+      rgba(96, 165, 250, 0.06) 55%,
+      rgba(255, 255, 255, 0) 80%
+    );
+
+  filter: blur(40px);
+
+  opacity: 0.95;
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease,
+    box-shadow 900ms ease;
+}
+
+
+/* ==================================================
+   SPHERE AMBIENT
+   ================================================== */
+
+.hero-sphere-ambient {
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.14) 0%,
+      rgba(124, 58, 237, 0.07) 38%,
+      rgba(96, 165, 250, 0.035) 58%,
+      transparent 76%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.8;
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+
+/* ==================================================
+   MAIN SPHERE
+   ================================================== */
+
+.hero-sphere {
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    hero-sphere-float
+    5s
+    ease-in-out
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* ==================================================
+   SPHERE CORE
+   ================================================== */
+
+.hero-sphere-core {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 42% 36%,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(245, 240, 255, 0.68) 18%,
+      rgba(221, 214, 252, 0.58) 42%,
+      rgba(198, 191, 242, 0.40) 64%,
+      rgba(255, 255, 255, 0) 78%
+    );
+
+  box-shadow:
+    inset 0 0 45px rgba(255, 255, 255, 0.55),
+    inset 0 -25px 55px rgba(124, 58, 237, 0.10);
+
+  opacity: 0.88;
+
+  transition:
+    background 900ms ease,
+    box-shadow 900ms ease,
+    opacity 700ms ease;
+}
+
+
+/* ==================================================
+   PURPLE GLOW
+   ================================================== */
+
+.hero-purple-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.20) 0%,
+      rgba(124, 58, 237, 0.12) 34%,
+      rgba(124, 58, 237, 0.045) 58%,
+      transparent 74%
+    );
+
+  filter: blur(32px);
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+
+/* ==================================================
+   BLUE GLOW
+   ================================================== */
+
+.hero-blue-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.16) 0%,
+      rgba(96, 165, 250, 0.09) 38%,
+      rgba(96, 165, 250, 0.035) 60%,
+      transparent 76%
+    );
+
+  filter: blur(38px);
+
+  opacity: 0.8;
+
+  pointer-events: none;
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+
+/* ==================================================
+   INNER GLOW
+   ================================================== */
+
+.hero-inner-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.06) 45%,
+      transparent 72%
+    );
+
+  filter: blur(16px);
+
+  pointer-events: none;
+
+  transition:
+    background 900ms ease,
+    opacity 900ms ease;
+}
+
+
+/* ==================================================
+   ORBIT DOTS
+   ================================================== */
+
+.hero-orbit-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 18px rgba(124, 58, 237, 0.32);
+
+  animation:
+    orbit-dot-pulse
+    3.5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 700ms ease,
+    box-shadow 700ms ease,
+    opacity 500ms ease;
+}
+
+.hero-orbit-dot-1 {
+  animation-delay: -0.8s;
+}
+
+.hero-orbit-dot-2 {
+  animation-delay: -1.6s;
+}
+
+.hero-orbit-dot-3 {
+  animation-delay: -2.4s;
+}
+
+.hero-orbit-dot-4 {
+  animation-delay: -3.1s;
+}
+
+
+/* ==================================================
+   ORBIT RINGS
+   ================================================== */
+
+.hero-sketch-orbit {
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transition:
+    border-color 800ms ease;
+}
+
+.hero-sketch-orbit-1 {
+  border: 1px solid rgba(124, 58, 237, 0.11);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-12deg)
+    scaleY(0.72);
+}
+
+.hero-sketch-orbit-2 {
+  border: 1px solid rgba(124, 58, 237, 0.07);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(17deg)
+    scaleY(0.68);
+}
+
+.hero-sketch-orbit-3 {
+  border: 1px solid rgba(96, 165, 250, 0.08);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-26deg)
+    scaleY(0.76);
+}
+
+
+/* ==================================================
+   WHITE LIGHT ORBS
+   ================================================== */
+
+.hero-light-orb {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 18px rgba(124, 58, 237, 0.25);
+
+  animation:
+    hero-light-orb-float
+    4s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 700ms ease,
+    box-shadow 700ms ease,
+    opacity 500ms ease;
+}
+
+.hero-light-orb-1 {
+  animation-delay: -1s;
+}
+
+.hero-light-orb-2 {
+  animation-delay: -2.2s;
+}
+
+.hero-light-orb-3 {
+  animation-delay: -3.1s;
+}
+
+
+/* ==================================================
+   PARTICLES
+   ================================================== */
+
+.hero-particle {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  animation:
+    hero-particle-float
+    5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 700ms ease,
+    box-shadow 700ms ease,
+    opacity 500ms ease;
+}
+
+.hero-particle-purple {
+  background: rgba(124, 58, 237, 0.55);
+
+  box-shadow:
+    0 0 10px rgba(124, 58, 237, 0.45);
+}
+
+.hero-particle-blue {
+  background: rgba(96, 165, 250, 0.55);
+
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, 0.4);
+}
+
+.hero-particle-1 {
+  animation-delay: -1s;
+}
+
+.hero-particle-2 {
+  animation-delay: -2s;
+}
+
+.hero-particle-3 {
+  animation-delay: -3.2s;
+}
+
+.hero-particle-4 {
+  animation-delay: -4s;
+}
+
+
+/* ==================================================
+   MICRO PARTICLE
+   ================================================== */
+
+.hero-micro-particle {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: rgba(124, 58, 237, 0.45);
+
+  box-shadow:
+    0 0 8px rgba(124, 58, 237, 0.3);
+
+  animation:
+    hero-micro-float
+    4s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 700ms ease,
+    box-shadow 700ms ease,
+    opacity 500ms ease;
+}
+
+
+/* ==================================================
+   IMAGE STAGE
+   ================================================== */
+
+.hero-image-stage {
+  width: 430px;
+  height: 560px;
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    hero-image-float
+    5s
+    ease-in-out
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* ==================================================
+   PERSON CONTACT SHADOW
+   ================================================== */
+
+.hero-person-shadow {
+  width: 285px;
+  height: 45px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(124, 58, 237, 0.16) 0%,
+      rgba(124, 58, 237, 0.09) 25%,
+      rgba(124, 58, 237, 0.035) 48%,
+      rgba(124, 58, 237, 0) 78%
+    );
+
+  filter: blur(13px);
+
+  opacity: 0.72;
+
+  animation:
+    hero-person-shadow-float
+    4.5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background 900ms ease,
+    opacity 700ms ease;
+}
+
+
+/* ==================================================
+   IMAGE INSIDE SPHERE
+   ================================================== */
+
+.hero-image-inside {
+  overflow: hidden;
+
+  clip-path:
+    circle(215px at 50% 50%);
+}
+
+
+/* ==================================================
+   HEAD OUTSIDE SPHERE
+   ================================================== */
+
+.hero-image-head {
+  overflow: hidden;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 48%,
+      0 48%
+    );
+}
+
+
+/* ==================================================
+   GIF
+   ================================================== */
+
+.hero-image-gif {
+  display: block;
+
+  width: 430px;
+  height: 560px;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  user-select: none;
+}
+
+
+/* ==================================================
+   HERO WAVE
+   ================================================== */
+
+.hero-wave {
+  position: absolute;
+
+  bottom: -43px;
+  left: 0;
+
+  width: 100%;
+  height: 120px;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+  z-index: 15;
+}
+
+
+.hero-wave__svg {
+  position: absolute;
+
+  left: -2%;
+  bottom: -45px;
+
+  width: 104%;
+  height: 170%;
+
+  display: block;
+
+  overflow: visible;
+
+  background: transparent;
+
+  transform:
+    translate3d(0, 0, 0);
+}
+
+
+/* ==================================================
+   HERO WAVE — BACK
+   ================================================== */
+
+.hero-wave__back {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  opacity: 0.95;
+
+  animation:
+    hero-wave-back-float
+    5.5s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  will-change: transform;
+
+  transition:
+    opacity 700ms ease;
+}
+
+
+/* ==================================================
+   HERO WAVE — MIDDLE
+   ================================================== */
+
+.hero-wave__middle {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  opacity: 0.95;
+
+  animation:
+    hero-wave-middle-float
+    6.5s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay: -2.5s;
+
+  will-change: transform;
+
+  transition:
+    opacity 700ms ease;
+}
+
+
+/* ==================================================
+   HERO WAVE — FRONT
+   ================================================== */
+
+.hero-wave__main {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  fill: var(--background);
+
+  animation:
+    hero-wave-front-float
+    6s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay: -1.5s;
+
+  will-change: transform;
+
+  transition:
+    fill 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ==================================================
+   HERO WAVE — BACK ANIMATION
+   ================================================== */
+
+@keyframes hero-wave-back-float {
+  0%,
+  100% {
+    transform:
+      translate3d(-18px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(5px, -5px, 0)
+      scaleY(1.035);
+  }
+
+  50% {
+    transform:
+      translate3d(22px, 3px, 0)
+      scaleY(0.965);
+  }
+
+  75% {
+    transform:
+      translate3d(4px, -4px, 0)
+      scaleY(1.025);
+  }
+}
+
+
+/* ==================================================
+   HERO WAVE — MIDDLE ANIMATION
+   ================================================== */
+
+@keyframes hero-wave-middle-float {
+  0%,
+  100% {
+    transform:
+      translate3d(18px, 1px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-5px, -5px, 0)
+      scaleY(0.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, 3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, -4px, 0)
+      scaleY(0.975);
+  }
+}
+
+
+/* ==================================================
+   HERO WAVE — FRONT ANIMATION
+   ================================================== */
+
+@keyframes hero-wave-front-float {
+  0%,
+  100% {
+    transform:
+      translate3d(12px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-7px, 4px, 0)
+      scaleY(1.025);
+  }
+
+  50% {
+    transform:
+      translate3d(-20px, -4px, 0)
+      scaleY(0.965);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, 3px, 0)
+      scaleY(1.02);
+  }
+}
+
+
+/* ==================================================
+   DARK MODE
+   ================================================== */
+
+html.dark .hero-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+
+/* ==================================================
+   DARK — ATMOSPHERE
+   ================================================== */
+
+html.dark .hero-section-atmosphere {
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(160, 150, 180, 0.075) 0%,
+      rgba(160, 150, 180, 0.032) 30%,
+      rgba(160, 150, 180, 0) 68%
+    );
+}
+
+html.dark .hero-section-purple-light {
+  background: rgba(124, 58, 237, 0.075);
+}
+
+html.dark .hero-section-blue-light {
+  background: rgba(59, 130, 246, 0.065);
+}
+
+
+/* ==================================================
+   DARK — BUTTONS
+   ================================================== */
+
+/*
+   Primary:
+   Light → dark text button
+   Dark  → light button
+*/
+
+html.dark .hero-primary-button {
+  background: #f3f0f7;
+  border-color: #f3f0f7;
+  color: #15121a;
+}
+
+html.dark .hero-button-corner {
+  border-color: #f3f0f7;
+}
+
+
+/*
+   Secondary:
+   Surface dark + soft border
+*/
+
+html.dark .hero-contact-button {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+html.dark .hero-contact-button:hover {
+  border-color: var(--primary);
+}
+
+
+/* ==================================================
+   DARK — SPHERE
+   ================================================== */
+
+html.dark .hero-main-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.17) 0%,
+      rgba(124, 58, 237, 0.09) 28%,
+      rgba(96, 165, 250, 0.06) 48%,
+      rgba(255, 255, 255, 0) 72%
+    );
+
+  opacity: 1;
+}
+
+html.dark .hero-sphere-ambient {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.18) 0%,
+      rgba(124, 58, 237, 0.09) 38%,
+      rgba(96, 165, 250, 0.045) 58%,
+      transparent 76%
+    );
+
+  opacity: 0.9;
+}
+
+html.dark .hero-sphere-core {
+  background:
+    radial-gradient(
+      circle at 42% 36%,
+      rgba(255, 255, 255, 0.82) 0%,
+      rgba(237, 233, 254, 0.72) 18%,
+      rgba(196, 181, 253, 0.58) 42%,
+      rgba(124, 58, 237, 0.28) 64%,
+      rgba(255, 255, 255, 0) 78%
+    );
+
+  box-shadow:
+    inset 0 0 55px rgba(255, 255, 255, 0.42),
+    inset 0 -25px 60px rgba(124, 58, 237, 0.22);
+}
+
+html.dark .hero-purple-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.28) 0%,
+      rgba(124, 58, 237, 0.15) 34%,
+      rgba(124, 58, 237, 0.055) 58%,
+      transparent 74%
+    );
+}
+
+html.dark .hero-blue-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.21) 0%,
+      rgba(96, 165, 250, 0.11) 38%,
+      rgba(96, 165, 250, 0.04) 60%,
+      transparent 76%
+    );
+}
+
+
+/* ==================================================
+   DARK — LIGHTS
+   ================================================== */
+
+html.dark .hero-orbit-dot {
+  background: #ffffff;
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 22px rgba(167, 139, 250, 0.55);
+}
+
+html.dark .hero-light-orb {
+  background: #ffffff;
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 22px rgba(167, 139, 250, 0.48);
+}
+
+
+/* ==================================================
+   DARK — ORBIT RINGS
+   ================================================== */
+
+html.dark .hero-sketch-orbit-1 {
+  border-color: rgba(167, 139, 250, 0.18);
+}
+
+html.dark .hero-sketch-orbit-2 {
+  border-color: rgba(167, 139, 250, 0.11);
+}
+
+html.dark .hero-sketch-orbit-3 {
+  border-color: rgba(96, 165, 250, 0.14);
+}
+
+
+/* ==================================================
+   DARK — SHADOWS
+   ================================================== */
+
+html.dark .hero-floating-ground {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(124, 58, 237, 0.38) 0%,
+      rgba(124, 58, 237, 0.24) 22%,
+      rgba(124, 58, 237, 0.10) 48%,
+      rgba(124, 58, 237, 0) 78%
+    );
+}
+
+html.dark .hero-person-shadow {
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(124, 58, 237, 0.20) 0%,
+      rgba(124, 58, 237, 0.11) 25%,
+      rgba(124, 58, 237, 0.04) 50%,
+      rgba(124, 58, 237, 0) 78%
+    );
+
+  opacity: 0.65;
+}
+
+
+/* ==================================================
+   DARK — WAVE
+   ================================================== */
+
+html.dark .hero-wave__back {
+  opacity: 1;
+}
+
+html.dark .hero-wave__middle {
+  opacity: 1;
+}
+
+html.dark .hero-wave__main {
+  fill: var(--background);
+}
+
+
+  /* ==================================================
+   RESPONSIVE — MOBILE
+   ================================================== */
+
+@media (max-width: 1109px) {
+
+  /* ================================================
+     HIDE SPHERE / GIF / SHADOW ON MOBILE
+     ================================================ */
+
+  .hero-image-stage,
+  .hero-sphere,
+  .hero-sphere-core,
+  .hero-sphere-ambient,
+  .hero-image-inside,
+  .hero-image-head,
+  .hero-image-gif,
+  .hero-person-shadow,
+  .hero-main-glow,
+  .hero-purple-glow,
+  .hero-blue-glow,
+  .hero-inner-glow,
+  .hero-floating-ground {
+    display: none !important;
+  }
+
+  .hero-visual {
+    height: auto !important;
+  }
+
+
+  /* ================================================
+     HERO WAVE
+     ================================================ */
+
+  .hero-wave {
+    height: 171px;
+  }
+
+  .hero-wave__svg {
+    left: -6%;
+    width: 112%;
+    height: 122%;
+    bottom: -45px;
+  }
+
+  .hero-wave__back {
+    animation-duration: 5.5s;
+  }
+
+  .hero-wave__middle {
+    animation-duration: 6.5s;
+  }
+
+  .hero-wave__main {
+    animation-duration: 6s;
+  }
+
+  /* ================================================
+   HERO CONTENT — MOBILE / TABLET
+   ================================================ */
+
+.hero-content-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.hero-content .hero-actions {
+  justify-content: center;
+}
+
+.hero-content .hero-eyebrow {
+  justify-content: center;
+}
+
+
+  /* ================================================
+     SPHERE GLOWS — MOBILE
+     ================================================ */
+
+  .hero-main-glow {
+    opacity: 0.55;
+    filter: blur(20px);
+  }
+
+  .hero-sphere-ambient {
+    opacity: 0.55;
+    filter: blur(14px);
+  }
+
+  .hero-purple-glow {
+    opacity: 0.55;
+    filter: blur(22px);
+  }
+
+  .hero-blue-glow {
+    opacity: 0.45;
+    filter: blur(24px);
+  }
+
+  .hero-inner-glow {
+    opacity: 0.5;
+    filter: blur(12px);
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — TABLET
+   ================================================== */
+
+@media (max-width: 1024px) {
+  .hero-floating-ground {
+    width: 290px;
+    height: 52px;
+
+    top: 96%;
+  }
+
+  .hero-image-stage {
+    width: 400px;
+    height: 500px;
+  }
+
+  .hero-image-gif {
+    width: 400px;
+    height: 500px;
+  }
+
+  .hero-image-inside {
+    clip-path:
+      circle(200px at 50% 50%);
+  }
+
+  .hero-person-shadow {
+    width: 255px;
+    height: 42px;
+  }
+}
+
+
+/* ==================================================
+   RESPONSIVE — MOBILE
+   ================================================== */
+
+@media (max-width: 640px) {
+  .hero-floating-ground {
+    width: 230px;
+    height: 42px;
+
+    top: 94%;
+  }
+
+  .hero-image-stage {
+    width: 300px;
+    height: 420px;
+  }
+
+  .hero-image-gif {
+    width: 300px;
+    height: 420px;
+  }
+
+  .hero-image-inside {
+    clip-path:
+      circle(165px at 50% 50%);
+  }
+
+  .hero-person-shadow {
+    width: 195px;
+    height: 36px;
+  }
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section,
+  .hero-title,
+  .hero-description,
+  .hero-eyebrow,
+  .hero-primary-button,
+  .hero-contact-button,
+  .hero-button-corner,
+  .hero-section-atmosphere,
+  .hero-section-purple-light,
+  .hero-section-blue-light,
+  .hero-main-glow,
+  .hero-wave__main {
+    transition: none;
+  }
+
+  .hero-wave__back,
+  .hero-wave__middle,
+  .hero-wave__main {
+    animation: none !important;
+    transform: none !important;
+  }
+}

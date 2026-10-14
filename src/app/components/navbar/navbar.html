@@ -1,0 +1,293 @@
+<nav class="site-navbar fixed left-0 top-0 z-50 w-full" aria-label="Main navigation">
+  <div class="site-navbar__inner">
+    <!-- =====================================================
+         LOGO
+         ===================================================== -->
+
+    <a href="#" class="site-navbar__logo" aria-label="Pedro — home" (click)="closeMobileMenu()">
+      <img src="/logo.png" alt="Logo Pedro Siqueira" class="site-navbar__logo-img" />
+      <span>Pedro</span>
+      <span class="site-navbar__logo-dot">.</span>
+    </a>
+
+    <!-- =====================================================
+         DESKTOP NAVIGATION
+         ===================================================== -->
+
+    <div class="site-navbar__navigation">
+      <a href="#about" class="site-navbar__link">
+        <span class="site-navbar__index">01</span>
+        <span class="site-navbar__label">
+          {{ languageService.translations.navbar.about }}
+        </span>
+      </a>
+
+      <a href="#work" class="site-navbar__link">
+        <span class="site-navbar__index">02</span>
+        <span class="site-navbar__label">
+          {{ languageService.translations.navbar.work }}
+        </span>
+      </a>
+
+      <a href="#skills" class="site-navbar__link">
+        <span class="site-navbar__index">03</span>
+        <span class="site-navbar__label">
+          {{ languageService.translations.navbar.skills }}
+        </span>
+      </a>
+
+      <a href="#experience" class="site-navbar__link">
+        <span class="site-navbar__index">04</span>
+        <span class="site-navbar__label">
+          {{ languageService.translations.navbar.experience }}
+        </span>
+      </a>
+
+      <a href="#contact" class="site-navbar__link">
+        <span class="site-navbar__index">05</span>
+        <span class="site-navbar__label">
+          {{ languageService.translations.navbar.contact }}
+        </span>
+      </a>
+    </div>
+
+    <!-- =====================================================
+         DESKTOP CONTROLS
+         ===================================================== -->
+
+    <div class="site-navbar__controls">
+      <!-- LANGUAGE -->
+
+      <button
+        type="button"
+        class="site-navbar__language"
+        [attr.aria-label]="
+          languageService.language() === 'en' ? 'Switch to Portuguese' : 'Switch to English'
+        "
+        (click)="toggleLanguage()"
+      >
+        <span>
+          {{ languageService.language() === 'en' ? 'EN' : 'PT' }}
+        </span>
+      </button>
+
+      <!-- DIVIDER -->
+
+      <span class="site-navbar__divider" aria-hidden="true"></span>
+
+      <!-- THEME -->
+
+      <button
+        type="button"
+        class="site-navbar__theme"
+        [class.is-dark]="isDarkMode"
+        [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-pressed]="isDarkMode"
+        (click)="toggleTheme($event)"
+      >
+        <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
+          <i class="pi pi-sun"></i>
+        </span>
+
+        <span class="site-navbar__theme-icon site-navbar__theme-icon--moon" aria-hidden="true">
+          <i class="pi pi-moon"></i>
+        </span>
+
+        <span class="site-navbar__theme-knob">
+          <i
+            class="pi"
+            [class.pi-sun]="!isDarkMode"
+            [class.pi-moon]="isDarkMode"
+            aria-hidden="true"
+          ></i>
+        </span>
+      </button>
+    </div>
+
+    <!-- =====================================================
+         MOBILE MENU BUTTON
+         ===================================================== -->
+
+    <button
+      type="button"
+      class="site-navbar__mobile"
+      [class.is-open]="isMobileMenuOpen"
+      [attr.aria-label]="
+        isMobileMenuOpen
+          ? languageService.language() === 'en'
+            ? 'Close navigation menu'
+            : 'Fechar menu de navegação'
+          : languageService.language() === 'en'
+            ? 'Open navigation menu'
+            : 'Abrir menu de navegação'
+      "
+      [attr.aria-expanded]="isMobileMenuOpen"
+      aria-controls="mobile-navigation"
+      (click)="toggleMobileMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- =====================================================
+       MOBILE FULLSCREEN MENU
+       ===================================================== -->
+
+  <div
+    id="mobile-navigation"
+    class="site-navbar__mobile-menu"
+    [class.is-open]="isMobileMenuOpen"
+    [attr.aria-hidden]="!isMobileMenuOpen"
+  >
+    <!-- BACKDROP -->
+
+    <button
+      type="button"
+      class="site-navbar__mobile-backdrop"
+      aria-label="Close navigation menu"
+      (click)="closeMobileMenu()"
+      tabindex="-1"
+    ></button>
+
+    <!-- MENU CONTENT -->
+
+    <div class="site-navbar__mobile-content">
+      <!-- SMALL LABEL -->
+
+      <div class="site-navbar__mobile-header">
+        <span class="site-navbar__mobile-label">
+          {{ languageService.language() === 'en' ? 'Navigation' : 'Navegação' }}
+        </span>
+
+        <span class="site-navbar__mobile-header-line" aria-hidden="true"></span>
+      </div>
+
+      <!-- NAVIGATION LINKS -->
+
+      <nav class="site-navbar__mobile-navigation" aria-label="Mobile navigation">
+        <a href="#about" class="site-navbar__mobile-link" tabindex="-1" (click)="closeMobileMenu()">
+          <span class="site-navbar__mobile-index">01</span>
+
+          <span class="site-navbar__mobile-link-label">
+            {{ languageService.translations.navbar.about }}
+          </span>
+
+          <span class="site-navbar__mobile-arrow" aria-hidden="true">
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
+
+        <a href="#work" class="site-navbar__mobile-link" tabindex="-1" (click)="closeMobileMenu()">
+          <span class="site-navbar__mobile-index">02</span>
+
+          <span class="site-navbar__mobile-link-label">
+            {{ languageService.translations.navbar.work }}
+          </span>
+
+          <span class="site-navbar__mobile-arrow" aria-hidden="true">
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
+
+        <a
+          href="#skills"
+          class="site-navbar__mobile-link"
+          tabindex="-1"
+          (click)="closeMobileMenu()"
+        >
+          <span class="site-navbar__mobile-index">03</span>
+
+          <span class="site-navbar__mobile-link-label">
+            {{ languageService.translations.navbar.skills }}
+          </span>
+
+          <span class="site-navbar__mobile-arrow" aria-hidden="true">
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
+
+        <a
+          href="#experience"
+          class="site-navbar__mobile-link"
+          tabindex="-1"
+          (click)="closeMobileMenu()"
+        >
+          <span class="site-navbar__mobile-index">04</span>
+
+          <span class="site-navbar__mobile-link-label">
+            {{ languageService.translations.navbar.experience }}
+          </span>
+
+          <span class="site-navbar__mobile-arrow" aria-hidden="true">
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
+
+        <a
+          href="#contact"
+          class="site-navbar__mobile-link"
+          tabindex="-1"
+          (click)="closeMobileMenu()"
+        >
+          <span class="site-navbar__mobile-index">05</span>
+
+          <span class="site-navbar__mobile-link-label">
+            {{ languageService.translations.navbar.contact }}
+          </span>
+
+          <span class="site-navbar__mobile-arrow" aria-hidden="true">
+            <i class="pi pi-arrow-up-right"></i>
+          </span>
+        </a>
+      </nav>
+
+      <!-- =====================================================
+           MOBILE FOOTER CONTROLS
+           ===================================================== -->
+
+      <div class="site-navbar__mobile-footer">
+        <!-- LANGUAGE -->
+
+        <button type="button" class="site-navbar__mobile-language" (click)="toggleLanguage()">
+          <span class="site-navbar__mobile-control-label">
+            {{ languageService.language() === 'en' ? 'Language' : 'Idioma' }}
+          </span>
+
+          <span class="site-navbar__mobile-language-value">
+            {{ languageService.language() === 'en' ? 'EN' : 'PT' }}
+          </span>
+        </button>
+
+        <!-- THEME -->
+
+        <button
+          type="button"
+          class="site-navbar__theme"
+          [class.is-dark]="isDarkMode"
+          [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+          [attr.aria-pressed]="isDarkMode"
+          (click)="toggleTheme($event)"
+        >
+          <span class="site-navbar__theme-icon site-navbar__theme-icon--moon" aria-hidden="true">
+            <i class="pi pi-moon"></i>
+          </span>
+          
+          <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
+            <i class="pi pi-sun"></i>
+          </span>
+
+          <span class="site-navbar__theme-knob">
+            <i
+              class="pi"
+              [class.pi-sun]="!isDarkMode"
+              [class.pi-moon]="isDarkMode"
+              aria-hidden="true"
+            ></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

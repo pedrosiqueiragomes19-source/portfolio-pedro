@@ -1,0 +1,269 @@
+<!-- Seção de Habilidades -->
+<section
+  #skillsSection
+  id="skills"
+  class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-0"
+>
+  <div #skillsContent class="relative z-20 mx-auto w-full max-w-6xl px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <header class="skills-header max-w-3xl">
+      <div class="skills-reveal skills-reveal--label flex items-center gap-4">
+        <span class="skills-eyebrow font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
+          {{ languageService.translations.skills.label }}
+        </span>
+        <span class="skills-header-line h-px w-12 bg-[var(--border)]" aria-hidden="true"></span>
+      </div>
+
+      <h2
+        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
+      >
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine1 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine2 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine3 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine4 }}
+        </span>
+        <br class="hidden sm:block" />
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine5 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine6 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine7 }}
+        </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleGradient }}
+        </span>
+      </h2>
+
+      <p class="skills-intro mt-5 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
+        {{ languageService.translations.skills.intro }}
+      </p>
+    </header>
+
+    <!-- Área de cards de habilidades -->
+    <div #skillsVisual class="skills-visual-area relative mt-14 sm:mt-16 lg:mt-20">
+      <div class="skills-grid relative z-20">
+        <!-- Card 01 - Frontend -->
+        <article class="skill-card skill-card--frontend" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--purple">
+                <span>⌘</span>
+              </div>
+              <span class="skill-card-index"> 01 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.frontend.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.frontend.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">Tailwind</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 02 - Backend -->
+        <article class="skill-card skill-card--backend" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--blue">
+                <span>&#123; &#125;</span>
+              </div>
+              <span class="skill-card-index"> 02 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.backend.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.backend.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">REST API</span>
+              <span class="skill-tag">Vercel</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 03 - Databases -->
+        <article class="skill-card skill-card--database" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--violet">
+                <span>◉</span>
+              </div>
+              <span class="skill-card-index"> 03 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.databases.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.databases.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 04 - Development -->
+        <article class="skill-card skill-card--development" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--purple">
+                <span>＋</span>
+              </div>
+              <span class="skill-card-index"> 04 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.development.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.development.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Clean Code</span>
+              <span class="skill-tag">Componentes</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 05 - Tools -->
+        <article class="skill-card skill-card--tools" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--blue">
+                <span>⌁</span>
+              </div>
+              <span class="skill-card-index"> 05 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.tools.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.tools.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Postman</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 06 - Workflow -->
+        <article class="skill-card skill-card--workflow" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--soft">
+                <span>↗</span>
+              </div>
+              <span class="skill-card-index"> 06 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.workflow.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.workflow.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Scrum</span>
+              <span class="skill-tag">Agile</span>
+              <span class="skill-tag">Versionamento</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Rodapé -->
+      <div class="skills-bottom mt-14 sm:mt-16">
+        <span class="skills-bottom-line" aria-hidden="true"></span>
+        <span class="skills-bottom-text">
+          {{ languageService.translations.skills.bottomNote }}
+        </span>
+        <span class="skills-bottom-line" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onda de transição para a seção de experiência -->
+  <div
+    class="section-wave section-wave--skills-experience pointer-events-none absolute bottom-[-1px] left-0 z-[40] !w-full"
+    aria-hidden="true"
+  >
+    <svg
+      class="section-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        class="section-wave__main"
+        fill="var(--background)"
+        d="
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
+  </div>
+</section>

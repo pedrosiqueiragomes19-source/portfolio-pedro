@@ -1,0 +1,156 @@
+<!-- Seção Sobre -->
+<section #aboutSection id="about" class="about-section relative overflow-hidden pt-20 pb-44 sm:pt-24 sm:pb-32 lg:pt-28">
+  <div class="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+    <!-- Cabeçalho da seção -->
+    <header class="about-header relative">
+      <div class="flex items-center gap-4">
+        <span class="about-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]">
+          {{ languageService.translations.about.eyebrow }}
+        </span>
+
+        <span class="about-header-line about-floating-line h-px w-12" aria-hidden="true"></span>
+      </div>
+
+      <div class="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <h2 class="about-title max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]">
+          {{ languageService.translations.about.title }}
+          <span>
+            {{ languageService.translations.about.titleGradient }}
+          </span>
+        </h2>
+
+        <div class="about-header-index hidden shrink-0 pb-1 lg:block">
+          <span class="font-mono text-[9px] uppercase tracking-[0.18em]">
+            {{ languageService.translations.about.headerIndex }}
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Grade editorial principal -->
+    <div
+      class="about-main-grid relative mt-14 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-[minmax(0,1.15fr)_280px_minmax(0,1.15fr)] lg:items-stretch lg:gap-10">
+
+      <!-- Linha central -->
+      <div
+        class="about-center-axis pointer-events-none absolute left-1/2 top-1/2 hidden h-[430px] -translate-x-1/2 -translate-y-1/2 lg:block"
+        aria-hidden="true">
+        <span class="about-axis-line"></span>
+        <span class="about-axis-node about-axis-node--top"></span>
+        <span class="about-axis-node about-axis-node--middle"></span>
+        <span class="about-axis-node about-axis-node--bottom"></span>
+      </div>
+
+      <!-- Bloco Quem sou eu -->
+      <div class="about-left-content relative flex flex-col h-full">
+        <div
+          class="about-content-block flex flex-1 flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface)]/40 p-7 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="about-section-number font-mono text-[10px] font-semibold text-[var(--primary)]">
+                  01
+                </span>
+                <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">
+                  {{ languageService.translations.about.whoIAm }}
+                </span>
+              </div>
+            </div>
+
+            <div class="about-content-line mt-4"></div>
+
+            <div class="mt-6">
+              <p class="about-intro text-lg font-medium leading-relaxed tracking-[-0.015em] sm:text-xl text-[var(--foreground)]">
+                {{ languageService.translations.about.intro }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elemento central -->
+      <div
+        class="about-orb-container relative flex h-[280px] w-full items-center justify-center sm:h-[320px] self-center"
+        aria-hidden="true">
+        <div class="about-center-orbit" aria-hidden="true">
+          <span class="about-center-orbit__ring"></span>
+          <span class="about-center-orbit__ring about-center-orbit__ring--two"></span>
+        </div>
+
+        <div class="about-center-core relative z-10" aria-hidden="true">
+          <span class="about-center-core__inner"></span>
+        </div>
+      </div>
+
+      <!-- Bloco O que faço -->
+      <div class="about-right-content relative flex flex-col h-full">
+        <div
+          class="about-content-block flex flex-1 flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface)]/40 p-7 backdrop-blur-sm transition-all duration-300 hover:border-[var(--primary)]/30">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="about-section-number font-mono text-[10px] font-semibold text-[var(--primary)]">
+                  02
+                </span>
+                <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">
+                  {{ languageService.translations.about.whatIDo }}
+                </span>
+              </div>
+
+              <span
+                class="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-[var(--border)] text-[var(--muted)]">
+                Engenharia · Dev
+              </span>
+            </div>
+
+            <div class="about-content-line mt-4"></div>
+
+            <div class="mt-6">
+              <p class="about-body-text text-lg font-medium leading-relaxed tracking-[-0.015em] sm:text-xl text-[var(--foreground)]">
+                {{ languageService.translations.about.bodyText }}
+              </p>
+            </div>
+          </div>
+
+          <div class="about-detail mt-8 flex items-center gap-3">
+            <span class="about-detail-line h-px w-8 bg-[var(--border)]" aria-hidden="true"></span>
+            <span class="about-detail-label font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
+              {{ languageService.translations.about.buildingWithIntention }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informações do rodapé da seção - Feito no Brasil sem ponto -->
+    <div
+      class="about-bottom-meta mt-14 flex flex-col gap-3 border-t border-[var(--border)] pt-6 sm:mt-16 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
+          {{ languageService.translations.about.basedIn }}
+        </span>
+      </div>
+
+      <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--muted)]">
+        {{ languageService.translations.about.available }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Onda de transição para a seção de projetos -->
+  <div class="section-wave section-wave--about-work pointer-events-none absolute bottom-[-56px] left-0 z-[40] !w-full"
+    aria-hidden="true">
+    <svg class="section-wave__svg" viewBox="0 0 1440 170" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="section-wave__main" fill="var(--background)" d="
+          M 0 48
+          C 135 24, 280 22, 425 56
+          C 560 88, 690 100, 825 64
+          C 960 28, 1090 18, 1220 48
+          C 1320 72, 1380 74, 1440 56
+          L 1440 170
+          L 0 170
+          Z
+        " />
+    </svg>
+  </div>
+</section>
