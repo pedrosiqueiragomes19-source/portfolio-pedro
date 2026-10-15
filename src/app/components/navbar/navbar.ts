@@ -160,8 +160,8 @@ export class Navbar implements OnInit, OnDestroy {
      LANGUAGE
      ========================================================= */
 
-  toggleLanguage(): void {
-    this.languageService.toggleLanguage();
+  setLanguage(lang: 'pt' | 'en'): void {
+    this.languageService.setLanguage(lang);
   }
 
   /* =========================================================

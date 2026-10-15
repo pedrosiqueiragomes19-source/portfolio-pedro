@@ -1,9 +1,5 @@
 <!-- Seção de Habilidades -->
-<section
-  #skillsSection
-  id="skills"
-  class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-0"
->
+<section #skillsSection id="skills" class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-0">
   <div #skillsContent class="relative z-20 mx-auto w-full max-w-6xl px-6 lg:px-8">
     <!-- Cabeçalho -->
     <header class="skills-header max-w-3xl">
@@ -15,8 +11,7 @@
       </div>
 
       <h2
-        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
-      >
+        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]">
         <span class="skills-word">
           {{ languageService.translations.skills.titleLine1 }}
         </span>
@@ -83,43 +78,14 @@
           </div>
         </article>
 
-        <!-- Card 02 - Backend -->
-        <article class="skill-card skill-card--backend" tabindex="0">
-          <div class="skill-card-content">
-            <div class="skill-card-top">
-              <div class="skill-card-icon skill-card-icon--blue">
-                <span>&#123; &#125;</span>
-              </div>
-              <span class="skill-card-index"> 02 </span>
-            </div>
-
-            <div class="skill-card-heading">
-              <h3>
-                {{ languageService.translations.skills.cards.backend.title }}
-              </h3>
-              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
-            </div>
-
-            <p class="skill-card-description">
-              {{ languageService.translations.skills.cards.backend.description }}
-            </p>
-
-            <div class="skill-tags">
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">REST API</span>
-              <span class="skill-tag">Vercel</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 03 - Databases -->
+        <!-- Card 02 - Databases -->
         <article class="skill-card skill-card--database" tabindex="0">
           <div class="skill-card-content">
             <div class="skill-card-top">
               <div class="skill-card-icon skill-card-icon--violet">
                 <span>◉</span>
               </div>
-              <span class="skill-card-index"> 03 </span>
+              <span class="skill-card-index"> 02 </span>
             </div>
 
             <div class="skill-card-heading">
@@ -140,14 +106,14 @@
           </div>
         </article>
 
-        <!-- Card 04 - Development -->
+        <!-- Card 03 - Development -->
         <article class="skill-card skill-card--development" tabindex="0">
           <div class="skill-card-content">
             <div class="skill-card-top">
               <div class="skill-card-icon skill-card-icon--purple">
                 <span>＋</span>
               </div>
-              <span class="skill-card-index"> 04 </span>
+              <span class="skill-card-index"> 03 </span>
             </div>
 
             <div class="skill-card-heading">
@@ -164,6 +130,38 @@
             <div class="skill-tags">
               <span class="skill-tag">Clean Code</span>
               <span class="skill-tag">Componentes</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 04 - Backend -->
+        <article class="skill-card skill-card--backend" tabindex="0">
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--blue">
+                <span>&#123; &#125;</span>
+              </div>
+              <span class="skill-card-index"> 04 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>
+                {{ languageService.translations.skills.cards.backend.title }}
+              </h3>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              {{ languageService.translations.skills.cards.backend.description }}
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">REST API</span>
+              <span class="skill-tag">Vercel</span>
             </div>
           </div>
         </article>
@@ -194,6 +192,12 @@
               <span class="skill-tag">GitHub</span>
               <span class="skill-tag">VS Code</span>
               <span class="skill-tag">Postman</span>
+              <span class="skill-tag">ChatGPT</span>
+              <span class="skill-tag">Claude</span>
+              <span class="skill-tag">Gemini</span>
+              <span class="skill-tag">Antigravity</span>
+              <span class="skill-tag">NetBeans</span>
+              <span class="skill-tag">Visual Studio</span>
             </div>
           </div>
         </article>
@@ -242,18 +246,9 @@
   <!-- Onda de transição para a seção de experiência -->
   <div
     class="section-wave section-wave--skills-experience pointer-events-none absolute bottom-[-1px] left-0 z-[40] !w-full"
-    aria-hidden="true"
-  >
-    <svg
-      class="section-wave__svg"
-      viewBox="0 0 1440 170"
-      preserveAspectRatio="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        class="section-wave__main"
-        fill="var(--background)"
-        d="
+    aria-hidden="true">
+    <svg class="section-wave__svg" viewBox="0 0 1440 170" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="section-wave__main" fill="var(--background)" d="
           M 0 50
           C 140 26, 285 24, 430 58
           C 565 90, 700 104, 840 66
@@ -262,8 +257,7 @@
           L 1440 170
           L 0 170
           Z
-        "
-      />
+        " />
     </svg>
   </div>
 </section>

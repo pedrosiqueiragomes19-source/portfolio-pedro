@@ -14,7 +14,7 @@ export const PT = {
     name: 'Pedro Siqueira',
     role: 'Desenvolvedor de Software',
     titleLine1: 'Entre linhas,',
-    titleGradient: 'acordes',
+    titleGradient: 'acordes,',
     titleLine2Suffix: 'gatos e',
     titleLine3: 'ideias.',
     description:
@@ -31,11 +31,11 @@ export const PT = {
     headerIndex: '01 / Sobre',
     whoIAm: 'Quem sou eu',
     intro:
-      'Sou Pedro Siqueira, sou apaixonado por música, café e códigos. E amo ver minhas ideias virarem sites.',
+      'Sou Pedro Siqueira, apaixonado por música, tecnologia e gatos! Caí de paraquedas no mundo da TI e descobri um universo onde a criatividade e a lógica caminham juntas. Desde então, me encantei pela possibilidade de transformar ideias em realidade por meio do código, sempre com curiosidade para aprender, experimentar e criar algo novo.',
     codeDesign: '',
     whatIDo: 'O que faço',
     bodyText:
-      'Nesse momento trabalho como assistente em uma engenharia de uma construção civil e estudante de desenvolvimento de software multiplataforma.',
+      'Atualmente, sou estudante de Desenvolvimento de Software Multiplataforma na FATEC e busco uma oportunidade de estágio na área de TI para aprimorar meus conhecimentos, desenvolver novas habilidades e transformar o que aprendo em soluções práticas.',
     buildingWithIntention: 'Construindo com propósito',
     basedIn: 'Feito no Brasil',
     available: 'Disponível para oportunidades',
@@ -51,7 +51,7 @@ export const PT = {
     liveDemo: 'Ver projeto',
     sourceCode: 'Código-fonte',
     moreProjects: 'Mais projetos em desenvolvimento',
-    codeDesign: 'Código × Criação',
+    codeDesign: 'Código x Criação',
     projects: [
       {
         title: 'Portfólio Pessoal',
@@ -60,12 +60,12 @@ export const PT = {
         status: 'Concluído',
       },
       {
-        title: 'SUBSTITUIR',
-        description: 'SUBSTITUIR',
+        title: 'QuickHelp - Projeto Interdisciplinr',
+        description: 'O QuickHelp é uma plataforma web discreta de apoio a mulheres, desenvolvida para oferecer ajuda rápida e segura em situações de risco. Com uma interface disfarçada de aplicativo de entregas, o sistema permite acionar um SOS, compartilhar a localização em tempo real e acessar orientações de emergência de forma silenciosa e eficaz.',
         status: 'Em breve',
       },
       {
-        title: 'SUBSTITUIR',
+        title: 'Substituir',
         description: 'SUBSTITUIR',
         status: 'Em breve',
       },

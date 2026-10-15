@@ -58,18 +58,24 @@
     <div class="site-navbar__controls">
       <!-- LANGUAGE -->
 
-      <button
-        type="button"
-        class="site-navbar__language"
-        [attr.aria-label]="
-          languageService.language() === 'en' ? 'Switch to Portuguese' : 'Switch to English'
-        "
-        (click)="toggleLanguage()"
-      >
-        <span>
-          {{ languageService.language() === 'en' ? 'EN' : 'PT' }}
-        </span>
-      </button>
+      <div class="site-navbar__languages" role="group" [attr.aria-label]="languageService.language() === 'en' ? 'Select language' : 'Selecionar idioma'">
+        <button
+          type="button"
+          class="site-navbar__language"
+          [class.active]="languageService.language() === 'pt'"
+          [attr.aria-pressed]="languageService.language() === 'pt'"
+          (click)="setLanguage('pt')">
+          <span>PT</span>
+        </button>
+        <button
+          type="button"
+          class="site-navbar__language"
+          [class.active]="languageService.language() === 'en'"
+          [attr.aria-pressed]="languageService.language() === 'en'"
+          (click)="setLanguage('en')">
+          <span>EN</span>
+        </button>
+      </div>
 
       <!-- DIVIDER -->
 
@@ -77,14 +83,9 @@
 
       <!-- THEME -->
 
-      <button
-        type="button"
-        class="site-navbar__theme"
-        [class.is-dark]="isDarkMode"
-        [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
-        [attr.aria-pressed]="isDarkMode"
-        (click)="toggleTheme($event)"
-      >
+      <button type="button" class="site-navbar__theme" [class.is-dark]="isDarkMode"
+        [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'" [attr.aria-pressed]="isDarkMode"
+        (click)="toggleTheme($event)">
         <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
           <i class="pi pi-sun"></i>
         </span>
@@ -94,12 +95,7 @@
         </span>
 
         <span class="site-navbar__theme-knob">
-          <i
-            class="pi"
-            [class.pi-sun]="!isDarkMode"
-            [class.pi-moon]="isDarkMode"
-            aria-hidden="true"
-          ></i>
+          <i class="pi" [class.pi-sun]="!isDarkMode" [class.pi-moon]="isDarkMode" aria-hidden="true"></i>
         </span>
       </button>
     </div>
@@ -108,11 +104,7 @@
          MOBILE MENU BUTTON
          ===================================================== -->
 
-    <button
-      type="button"
-      class="site-navbar__mobile"
-      [class.is-open]="isMobileMenuOpen"
-      [attr.aria-label]="
+    <button type="button" class="site-navbar__mobile" [class.is-open]="isMobileMenuOpen" [attr.aria-label]="
         isMobileMenuOpen
           ? languageService.language() === 'en'
             ? 'Close navigation menu'
@@ -120,11 +112,7 @@
           : languageService.language() === 'en'
             ? 'Open navigation menu'
             : 'Abrir menu de navegação'
-      "
-      [attr.aria-expanded]="isMobileMenuOpen"
-      aria-controls="mobile-navigation"
-      (click)="toggleMobileMenu()"
-    >
+      " [attr.aria-expanded]="isMobileMenuOpen" aria-controls="mobile-navigation" (click)="toggleMobileMenu()">
       <span></span>
       <span></span>
       <span></span>
@@ -135,21 +123,12 @@
        MOBILE FULLSCREEN MENU
        ===================================================== -->
 
-  <div
-    id="mobile-navigation"
-    class="site-navbar__mobile-menu"
-    [class.is-open]="isMobileMenuOpen"
-    [attr.aria-hidden]="!isMobileMenuOpen"
-  >
+  <div id="mobile-navigation" class="site-navbar__mobile-menu" [class.is-open]="isMobileMenuOpen"
+    [attr.aria-hidden]="!isMobileMenuOpen">
     <!-- BACKDROP -->
 
-    <button
-      type="button"
-      class="site-navbar__mobile-backdrop"
-      aria-label="Close navigation menu"
-      (click)="closeMobileMenu()"
-      tabindex="-1"
-    ></button>
+    <button type="button" class="site-navbar__mobile-backdrop" aria-label="Close navigation menu"
+      (click)="closeMobileMenu()" tabindex="-1"></button>
 
     <!-- MENU CONTENT -->
 
@@ -191,12 +170,7 @@
           </span>
         </a>
 
-        <a
-          href="#skills"
-          class="site-navbar__mobile-link"
-          tabindex="-1"
-          (click)="closeMobileMenu()"
-        >
+        <a href="#skills" class="site-navbar__mobile-link" tabindex="-1" (click)="closeMobileMenu()">
           <span class="site-navbar__mobile-index">03</span>
 
           <span class="site-navbar__mobile-link-label">
@@ -208,12 +182,7 @@
           </span>
         </a>
 
-        <a
-          href="#experience"
-          class="site-navbar__mobile-link"
-          tabindex="-1"
-          (click)="closeMobileMenu()"
-        >
+        <a href="#experience" class="site-navbar__mobile-link" tabindex="-1" (click)="closeMobileMenu()">
           <span class="site-navbar__mobile-index">04</span>
 
           <span class="site-navbar__mobile-link-label">
@@ -225,12 +194,7 @@
           </span>
         </a>
 
-        <a
-          href="#contact"
-          class="site-navbar__mobile-link"
-          tabindex="-1"
-          (click)="closeMobileMenu()"
-        >
+        <a href="#contact" class="site-navbar__mobile-link" tabindex="-1" (click)="closeMobileMenu()">
           <span class="site-navbar__mobile-index">05</span>
 
           <span class="site-navbar__mobile-link-label">
@@ -250,41 +214,38 @@
       <div class="site-navbar__mobile-footer">
         <!-- LANGUAGE -->
 
-        <button type="button" class="site-navbar__mobile-language" (click)="toggleLanguage()">
-          <span class="site-navbar__mobile-control-label">
-            {{ languageService.language() === 'en' ? 'Language' : 'Idioma' }}
-          </span>
-
-          <span class="site-navbar__mobile-language-value">
-            {{ languageService.language() === 'en' ? 'EN' : 'PT' }}
-          </span>
-        </button>
+        <div class="site-navbar__mobile-languages" role="group" [attr.aria-label]="languageService.language() === 'en' ? 'Language' : 'Idioma'">
+          <button
+            type="button"
+            class="site-navbar__mobile-language-btn"
+            [class.active]="languageService.language() === 'pt'"
+            (click)="setLanguage('pt')">
+            <span>PT</span>
+          </button>
+          <button
+            type="button"
+            class="site-navbar__mobile-language-btn"
+            [class.active]="languageService.language() === 'en'"
+            (click)="setLanguage('en')">
+            <span>EN</span>
+          </button>
+        </div>
 
         <!-- THEME -->
 
-        <button
-          type="button"
-          class="site-navbar__theme"
-          [class.is-dark]="isDarkMode"
+        <button type="button" class="site-navbar__theme" [class.is-dark]="isDarkMode"
           [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
-          [attr.aria-pressed]="isDarkMode"
-          (click)="toggleTheme($event)"
-        >
+          [attr.aria-pressed]="isDarkMode" (click)="toggleTheme($event)">
           <span class="site-navbar__theme-icon site-navbar__theme-icon--moon" aria-hidden="true">
             <i class="pi pi-moon"></i>
           </span>
-          
+
           <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
             <i class="pi pi-sun"></i>
           </span>
 
           <span class="site-navbar__theme-knob">
-            <i
-              class="pi"
-              [class.pi-sun]="!isDarkMode"
-              [class.pi-moon]="isDarkMode"
-              aria-hidden="true"
-            ></i>
+            <i class="pi" [class.pi-sun]="!isDarkMode" [class.pi-moon]="isDarkMode" aria-hidden="true"></i>
           </span>
         </button>
       </div>

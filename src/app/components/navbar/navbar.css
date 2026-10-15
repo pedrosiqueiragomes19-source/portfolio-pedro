@@ -293,13 +293,20 @@
 
 
 /* =========================================================
-   LANGUAGE
+   LANGUAGE (PT / EN)
    ========================================================= */
 
-.site-navbar__language {
-  height: 32px;
+.site-navbar__languages {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+}
 
-  padding: 0 9px;
+.site-navbar__language {
+  height: 30px;
+
+  padding: 0 8px;
 
   border: 0;
   border-radius: 999px;
@@ -319,7 +326,8 @@
   transition:
     color 250ms ease,
     background-color 250ms ease,
-    transform 300ms ease;
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
 
@@ -329,6 +337,77 @@
   background: var(--navbar-primary-soft);
 
   transform: translateY(-1px);
+}
+
+.site-navbar__language.active {
+  color: var(--primary);
+
+  background: var(--navbar-primary-soft);
+
+  font-weight: 600;
+}
+
+html.dark .site-navbar__language.active {
+  color: #c4b5fd;
+
+  background: rgba(124, 58, 237, 0.16);
+}
+
+/* Mobile Language Switcher */
+.site-navbar__mobile-languages {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 1px solid var(--navbar-border);
+  border-radius: 12px;
+
+  padding: 4px;
+
+  background: transparent;
+}
+
+.site-navbar__mobile-language-btn {
+  flex: 1;
+
+  min-height: 44px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--navbar-muted);
+
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.site-navbar__mobile-language-btn:hover {
+  color: var(--navbar-foreground);
+}
+
+.site-navbar__mobile-language-btn.active {
+  color: var(--primary);
+
+  background: var(--navbar-primary-soft);
+
+  font-weight: 600;
+}
+
+html.dark .site-navbar__mobile-language-btn.active {
+  color: #c4b5fd;
+
+  background: rgba(124, 58, 237, 0.18);
 }
 
 
