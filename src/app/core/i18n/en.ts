@@ -60,14 +60,10 @@ export const EN = {
         status: 'Completed',
       },
       {
-        title: 'SUBSTITUIR',
-        description: 'SUBSTITUIR',
-        status: 'Coming Soon',
-      },
-      {
-        title: 'SUBSTITUIR',
-        description: 'SUBSTITUIR',
-        status: 'Coming Soon',
+        title: 'QuickHelp — Interdisciplinary Project',
+        description:
+          'QuickHelp is a discreet web platform designed to support women in risky situations. With an interface disguised as a delivery app, it allows users to trigger an SOS alert, share their real-time location, and access emergency guidance silently and effectively.',
+        status: 'Coming soon',
       },
     ],
   },
