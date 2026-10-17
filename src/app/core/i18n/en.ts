@@ -1,26 +1,26 @@
-// Traduções em Inglês (en-US)
+// English translations (en-US) — mirrors pt-BR content
 
 export const EN = {
   navbar: {
     about: 'About',
-    work: 'Work',
+    work: 'Projects',
     skills: 'Skills',
     experience: 'Experience',
     contact: 'Contact',
   },
 
   hero: {
-    greeting: 'Hello, I am',
+    greeting: 'Hi, I am',
     name: 'Pedro Siqueira',
     role: 'Software Developer',
-    titleLine1: 'I build digital',
-    titleGradient: 'experiences',
-    titleLine2Suffix: 'with',
-    titleLine3: 'code & rhythm.',
+    titleLine1: 'Between lines,',
+    titleGradient: 'chords,',
+    titleLine2Suffix: 'cats and',
+    titleLine3: 'ideas.',
     description:
-      'I am a Multiplatform Software Development student at FATEC Mauá, passionate about technology and creating practical solutions to real-world problems. I am interested in web development, automation, data, and systems integration, always looking for ways to build functional and efficient solutions. I enjoy learning by doing, exploring new technologies, and continuously growing as a developer.',
+      "I'm a Multiplatform Software Development student at FATEC. I'm passionate about art, technology, writing and literature. I've been programming for about 2 years and I'm looking for opportunities to keep growing in the field. I enjoy learning by doing, I'm very curious, and I'm always in search of knowledge.",
     viewWork: 'View projects',
-    contact: 'Contact me',
+    contact: 'Get in touch',
   },
 
   about: {
@@ -31,38 +31,38 @@ export const EN = {
     headerIndex: '01 / About',
     whoIAm: 'Who I am',
     intro:
-      'I am Pedro Siqueira, passionate about music, coffee, and code. I love seeing my ideas come to life on the web.',
-    codeDesign: 'Code × Rhythm',
+      "I'm Pedro Siqueira, passionate about music, technology and cats! I stumbled into the IT world by chance and discovered a universe where creativity and logic walk together. Since then I've been captivated by the possibility of turning ideas into reality through code, always curious to learn, experiment and create something new.",
+    codeDesign: '',
     whatIDo: 'What I do',
     bodyText:
-      'Currently I work as an assistant in civil construction engineering and I am a multiplatform software development student.',
+      "I'm currently a Multiplatform Software Development student at FATEC and I'm looking for an internship opportunity in IT to sharpen my knowledge, develop new skills and turn what I learn into practical solutions.",
     buildingWithIntention: 'Building with purpose',
     basedIn: 'Made in Brazil',
     available: 'Available for opportunities',
   },
 
   work: {
-    eyebrow: 'Selected work',
-    title: 'A selection of things',
-    titleBuilt: "I've built with",
+    eyebrow: 'Selected projects',
+    title: "A selection of what I've",
+    titleBuilt: 'built with',
     titleGradient: 'code & design.',
-    intro: 'Original projects combining logic, modern interfaces, and attention to detail.',
+    intro: 'Original projects combining logic, modern interfaces and attention to detail.',
     viewAll: 'View GitHub',
-    liveDemo: 'Live demo',
+    liveDemo: 'View project',
     sourceCode: 'Source code',
-    moreProjects: 'More projects under development',
+    moreProjects: 'More projects in development',
     codeDesign: 'Code × Creation',
     projects: [
       {
         title: 'Personal Portfolio',
         description:
-          'Interactive portfolio built with Angular, TypeScript, and Tailwind CSS, focused on performance, accessibility, and modern aesthetics.',
+          'Interactive portfolio built with Angular, TypeScript and Tailwind CSS, focused on performance, accessibility and modern aesthetics.',
         status: 'Completed',
       },
       {
-        title: 'QuickHelp — Interdisciplinary Project',
+        title: 'QuickHelp - Interdisciplinary Project',
         description:
-          'QuickHelp is a discreet web platform designed to support women in risky situations. With an interface disguised as a delivery app, it allows users to trigger an SOS alert, share their real-time location, and access emergency guidance silently and effectively.',
+          'QuickHelp is a discreet web platform to support women, built to offer quick and safe help in risky situations. With an interface disguised as a delivery app, the system lets users trigger an SOS, share their real-time location and access emergency guidance silently and effectively.',
         status: 'Coming soon',
       },
     ],
@@ -79,11 +79,11 @@ export const EN = {
     titleLine7: 'digital',
     titleGradient: 'experiences.',
     intro:
-      'Technologies and practices I use to build reliable, responsive, and maintainable applications.',
+      'Technologies and practices I use to build reliable, responsive and easy-to-maintain applications.',
     cards: {
       frontend: {
         title: 'Frontend',
-        description: 'Responsive interfaces built with clean components, semantic HTML, and Tailwind CSS.',
+        description: 'Responsive interfaces built with clean components, semantics and Tailwind CSS.',
       },
       backend: {
         title: 'Backend',
@@ -91,19 +91,19 @@ export const EN = {
       },
       databases: {
         title: 'Databases',
-        description: 'Data modeling and structured database integrations for web applications.',
+        description: 'Modeling and work with structured data for web applications.',
       },
       development: {
         title: 'Development',
-        description: 'Clean code, scalable architecture, and continuous version control.',
+        description: 'Clean code, scalable architecture and continuous versioning.',
       },
       tools: {
         title: 'Tools',
-        description: 'Tools and utilities that support my day-to-day workflow.',
+        description: 'Tools and utilities that support my workflow.',
       },
       workflow: {
         title: 'Workflow',
-        description: 'Agile practices, hands-on learning, and collaboration throughout development.',
+        description: 'Agile practices, a focus on hands-on learning and collaboration.',
       },
     },
     bottomNote: 'Always learning · Always building',
@@ -113,23 +113,23 @@ export const EN = {
     label: '04 — Journey',
     titleLine1: 'My',
     titleLine2: 'journey &',
-    titleLine3: 'experience.',
+    titleLine3: 'work.',
     intro:
-      'Professional and academic experience focused on technical discipline, continuous growth, and software development.',
+      'Professional and academic experience focused on technical discipline, continuous evolution and software development.',
     jobs: [
       {
         meta: 'CURRENT · CIVIL CONSTRUCTION',
         role: 'Engineering Assistant',
         company: 'Engineering & Civil Construction',
         description:
-          'Working as an assistant in civil construction engineering, supporting operational workflows, technical organization, and process monitoring.',
+          'Working as an assistant in civil construction engineering, providing operational support, technical organization of workflows and routine follow-up.',
       },
       {
         meta: 'IN PROGRESS · FATEC MAUÁ',
-        role: 'Multiplatform Software Student',
+        role: 'Multiplatform Software Development Student',
         company: 'FATEC Mauá',
         description:
-          'Higher education in Multiplatform Software Development, studying web development, system integrations, databases, and automation.',
+          'Technology degree in Multiplatform Software Development, exploring web development, system integration, databases and automation.',
       },
     ],
     bottom: 'Building · Learning · Evolving',
@@ -142,15 +142,15 @@ export const EN = {
     titleLine3: 'something',
     titleGradient: 'meaningful.',
     intro:
-      "Have a project, internship opportunity, or idea you'd like to discuss? I'd love to connect.",
+      "Have a project, internship opportunity or idea you'd like to talk about? It would be a pleasure to connect.",
     github: {
       label: 'Code',
-      description: 'Explore my repositories, experiments, and source code.',
+      description: 'Explore my repositories, projects and source code.',
       ariaLabel: "Visit Pedro Siqueira's GitHub",
     },
     linkedin: {
       label: 'Professional',
-      description: 'Connect with me and see my professional journey.',
+      description: 'Connect with me and learn about my professional journey.',
       ariaLabel: "Visit Pedro Siqueira's LinkedIn",
     },
     email: {
@@ -160,7 +160,7 @@ export const EN = {
     },
     availability: 'Open to opportunities',
     specialization: 'Software Development',
-    bottom: 'Thanks for stopping by.',
+    bottom: 'Thanks for visiting.',
     form: {
       label: 'Send a message',
       namePlaceholder: 'Your name',
@@ -175,7 +175,7 @@ export const EN = {
       emailError: 'Please enter a valid e-mail address.',
       messageError: 'Message must have at least 10 characters.',
       successTitle: 'Message sent!',
-      successText: 'Thank you for reaching out. I will get back to you soon.',
+      successText: "Thanks for reaching out. I'll get back to you soon.",
     },
   },
 
