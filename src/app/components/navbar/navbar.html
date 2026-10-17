@@ -58,7 +58,8 @@
     <div class="site-navbar__controls">
       <!-- LANGUAGE -->
 
-      <div class="site-navbar__languages" role="group" [attr.aria-label]="languageService.language() === 'en' ? 'Select language' : 'Selecionar idioma'">
+      <div class="site-navbar__languages" role="group" [class.is-en]="languageService.language() === 'en'" [attr.aria-label]="languageService.language() === 'en' ? 'Select language' : 'Selecionar idioma'">
+        <span class="site-navbar__language-pill" aria-hidden="true"></span>
         <button
           type="button"
           class="site-navbar__language"
@@ -214,7 +215,8 @@
       <div class="site-navbar__mobile-footer">
         <!-- LANGUAGE -->
 
-        <div class="site-navbar__mobile-languages" role="group" [attr.aria-label]="languageService.language() === 'en' ? 'Language' : 'Idioma'">
+        <div class="site-navbar__mobile-languages" role="group" [class.is-en]="languageService.language() === 'en'" [attr.aria-label]="languageService.language() === 'en' ? 'Language' : 'Idioma'">
+          <span class="site-navbar__mobile-language-pill" aria-hidden="true"></span>
           <button
             type="button"
             class="site-navbar__mobile-language-btn"

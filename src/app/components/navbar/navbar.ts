@@ -161,7 +161,11 @@ export class Navbar implements OnInit, OnDestroy {
      ========================================================= */
 
   setLanguage(lang: 'pt' | 'en'): void {
-    this.languageService.setLanguage(lang);
+    if (this.languageService.language() === lang) {
+      this.languageService.toggleLanguage();
+    } else {
+      this.languageService.setLanguage(lang);
+    }
   }
 
   /* =========================================================
