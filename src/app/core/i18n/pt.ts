@@ -63,7 +63,7 @@ export const PT = {
         title: 'QuickHelp - Projeto Interdisciplinar',
         description:
           'O QuickHelp é uma plataforma web discreta de apoio a mulheres, desenvolvida para oferecer ajuda rápida e segura em situações de risco. Com uma interface disfarçada de aplicativo de entregas, o sistema permite acionar um SOS, compartilhar a localização em tempo real e acessar orientações de emergência de forma silenciosa e eficaz.',
-        status: 'Em breve',
+        status: ','
       },
     ],
   },

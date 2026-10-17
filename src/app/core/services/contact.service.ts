@@ -13,7 +13,7 @@ export interface ContactPayload {
   honeypot?: string;
   lang?: string;
 }
-
+  
 export interface ContactResponse {
   success: boolean;
   message: string;
@@ -28,7 +28,7 @@ export class ContactService {
   constructor(
     private http: HttpClient,
     private languageService: LanguageService,
-  ) {}
+  ) { }
 
   // Envia os dados do formulário para o endpoint serverless com timeout
   sendMessage(payload: ContactPayload): Observable<ContactResponse> {

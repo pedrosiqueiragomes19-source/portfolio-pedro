@@ -1,7 +1,9 @@
 <!-- Seção Hero -->
-<section #heroSection id="home" class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
+<section #heroSection id="home"
+  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
   <!-- Grade de conteúdo principal -->
-  <div class="hero-content-grid mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8">
+  <div
+    class="hero-content-grid mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8">
     <!-- Bloco de texto do Hero -->
     <div #heroContent class="relative z-30 max-w-2xl">
       <!-- Tag de papel/cargo sem bolinha verde -->
@@ -13,7 +15,8 @@
       </div>
 
       <!-- Título principal -->
-      <h1 #heroTitle class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+      <h1 #heroTitle
+        class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
         <span class="hero-title-line">
           {{ languageService.translations.hero.titleLine1 }}
         </span>
@@ -66,18 +69,14 @@
     </div>
 
     <!-- Elemento visual 3D do Hero -->
-    <div
-      #heroVisual
-      class="hero-visual relative z-10 flex h-[470px] w-full items-center justify-center"
-    >
+    <div #heroVisual class="hero-visual relative z-10 flex h-[470px] w-full items-center justify-center">
       <!-- Sombra de chão -->
       <div class="hero-floating-ground pointer-events-none absolute left-1/2 top-[113%] z-[2]" aria-hidden="true"></div>
 
       <!-- Esfera principal 3D e órbitas -->
       <div
         class="hero-sphere hero-parallax-main pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[430px] w-[430px]"
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         <div class="hero-sphere-core absolute inset-0"></div>
         <div class="hero-purple-glow absolute -inset-20"></div>
         <div class="hero-blue-glow absolute -inset-24"></div>
@@ -92,20 +91,17 @@
       <!-- Anéis de órbita 3D -->
       <div
         class="hero-sketch-orbit hero-sketch-orbit-1 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[440px] w-[440px]"
-        aria-hidden="true"
-      ></div>
+        aria-hidden="true"></div>
 
       <div
         class="hero-sketch-orbit hero-sketch-orbit-2 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[500px] w-[500px]"
-        aria-hidden="true"
-      ></div>
+        aria-hidden="true"></div>
 
       <div
         class="hero-sketch-orbit hero-sketch-orbit-3 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[475px] w-[475px]"
-        aria-hidden="true"
-      ></div>
+        aria-hidden="true"></div>
     </div>
-  </div>  
+  </div>
 
   <!-- Transição em onda suave entre seções -->
   <div class="hero-wave pointer-events-none absolute bottom-[-74px] left-0 z-[40] w-full" aria-hidden="true">

@@ -60,7 +60,7 @@ export class Contact implements AfterViewInit, OnDestroy {
   constructor(
     public languageService: LanguageService,
     private contactService: ContactService
-  ) {}
+  ) { }
 
   // =========================================================
   // LIFECYCLE
@@ -75,12 +75,11 @@ export class Contact implements AfterViewInit, OnDestroy {
   // =========================================================
 
   onSubmit(form: NgForm): void {
-    // Verificação básica de validade e estado
     if (form.invalid || this.formState === 'loading') {
       return;
     }
 
-    // Anti-spam: se o honeypot foi preenchido, silenciosamente não envia
+    // Anti-spam: se o honeypot foi preenchido, simula sucesso sem enviar
     if (this.formData.honeypot) {
       this.simulateSuccess(form);
       return;
