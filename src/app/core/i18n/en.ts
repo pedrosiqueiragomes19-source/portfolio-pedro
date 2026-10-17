@@ -1,9 +1,9 @@
-// English translations (en-US)
+// Traduções em Inglês (en-US)
 
 export const EN = {
   navbar: {
     about: 'About',
-    work: 'Projects',
+    work: 'Work',
     skills: 'Skills',
     experience: 'Experience',
     contact: 'Contact',
@@ -13,14 +13,14 @@ export const EN = {
     greeting: 'Hello, I am',
     name: 'Pedro Siqueira',
     role: 'Software Developer',
-    titleLine1: 'Between lines,',
-    titleGradient: 'chords,',
-    titleLine2Suffix: 'cats and',
-    titleLine3: 'ideas.',
+    titleLine1: 'I build digital',
+    titleGradient: 'experiences',
+    titleLine2Suffix: 'with',
+    titleLine3: 'code & rhythm.',
     description:
-      'I am a Multiplatform Software Development student at FATEC Mauá. I am passionate about art, technology, writing, and literature. I have been programming for about two years and am looking for opportunities to grow and keep learning in the field. I enjoy learning through hands-on experience, am naturally curious, and am always looking to expand my knowledge.',
+      'I am a Multiplatform Software Development student at FATEC Mauá, passionate about technology and creating practical solutions to real-world problems. I am interested in web development, automation, data, and systems integration, always looking for ways to build functional and efficient solutions. I enjoy learning by doing, exploring new technologies, and continuously growing as a developer.',
     viewWork: 'View projects',
-    contact: 'Get in touch',
+    contact: 'Contact me',
   },
 
   about: {
@@ -31,46 +31,43 @@ export const EN = {
     headerIndex: '01 / About',
     whoIAm: 'Who I am',
     intro:
-      "I am Pedro Siqueira, passionate about music, technology, and cats! I stumbled into the world of IT and discovered a field where creativity and logic go hand in hand. Since then, I have been fascinated by the possibility of turning ideas into reality through code, always curious to learn, experiment, and create something new.",
+      'I am Pedro Siqueira, passionate about music, coffee, and code. I love seeing my ideas come to life on the web.',
     codeDesign: 'Code × Rhythm',
     whatIDo: 'What I do',
     bodyText:
-      'I am currently studying Multiplatform Software Development at FATEC and looking for an internship in IT where I can strengthen my knowledge, develop new skills, and turn what I learn into practical solutions.',
+      'Currently I work as an assistant in civil construction engineering and I am a multiplatform software development student.',
     buildingWithIntention: 'Building with purpose',
     basedIn: 'Made in Brazil',
-    available: 'Open to opportunities',
+    available: 'Available for opportunities',
   },
 
   work: {
-    eyebrow: 'Selected projects',
-    title: 'A selection of what',
+    eyebrow: 'Selected work',
+    title: 'A selection of things',
     titleBuilt: "I've built with",
     titleGradient: 'code & design.',
-    intro:
-      'Projects combining logic, modern interfaces, and attention to detail.',
+    intro: 'Original projects combining logic, modern interfaces, and attention to detail.',
     viewAll: 'View GitHub',
-    liveDemo: 'View project',
+    liveDemo: 'Live demo',
     sourceCode: 'Source code',
-    moreProjects: 'More projects in development',
+    moreProjects: 'More projects under development',
     codeDesign: 'Code × Creation',
-
     projects: [
       {
         title: 'Personal Portfolio',
         description:
-          'An interactive portfolio built with Angular, TypeScript, and Tailwind CSS, focused on performance, accessibility, and modern aesthetics.',
+          'Interactive portfolio built with Angular, TypeScript, and Tailwind CSS, focused on performance, accessibility, and modern aesthetics.',
         status: 'Completed',
       },
       {
-        title: 'QuickHelp — Interdisciplinary Project',
-        description:
-          'QuickHelp is a discreet web platform designed to support women in risky situations. With an interface disguised as a delivery app, it allows users to trigger an SOS alert, share their real-time location, and access emergency guidance silently and effectively.',
-        status: 'Coming soon',
+        title: 'SUBSTITUIR',
+        description: 'SUBSTITUIR',
+        status: 'Coming Soon',
       },
       {
-        title: 'Project in Development',
-        description: 'Details coming soon.',
-        status: 'Coming soon',
+        title: 'SUBSTITUIR',
+        description: 'SUBSTITUIR',
+        status: 'Coming Soon',
       },
     ],
   },
@@ -82,45 +79,37 @@ export const EN = {
     titleLine3: 'I',
     titleLine4: 'use',
     titleLine5: 'to',
-    titleLine6: 'create',
+    titleLine6: 'build',
     titleLine7: 'digital',
     titleGradient: 'experiences.',
     intro:
       'Technologies and practices I use to build reliable, responsive, and maintainable applications.',
-
     cards: {
       frontend: {
         title: 'Frontend',
-        description:
-          'Responsive interfaces built with clean components, semantic HTML, and Tailwind CSS.',
+        description: 'Responsive interfaces built with clean components, semantic HTML, and Tailwind CSS.',
       },
       backend: {
         title: 'Backend',
-        description:
-          'REST APIs and application logic focused on functional integrations.',
+        description: 'REST APIs and application logic focused on functional integrations.',
       },
       databases: {
         title: 'Databases',
-        description:
-          'Data modeling and structured data management for web applications.',
+        description: 'Data modeling and structured database integrations for web applications.',
       },
       development: {
         title: 'Development',
-        description:
-          'Clean code, scalable architecture, and continuous version control.',
+        description: 'Clean code, scalable architecture, and continuous version control.',
       },
       tools: {
         title: 'Tools',
-        description:
-          'Tools and utilities that support my development workflow.',
+        description: 'Tools and utilities that support my day-to-day workflow.',
       },
       workflow: {
         title: 'Workflow',
-        description:
-          'Agile practices, hands-on learning, and collaboration throughout development.',
+        description: 'Agile practices, hands-on learning, and collaboration throughout development.',
       },
     },
-
     bottomNote: 'Always learning · Always building',
   },
 
@@ -130,26 +119,24 @@ export const EN = {
     titleLine2: 'journey &',
     titleLine3: 'experience.',
     intro:
-      'Professional and academic experience focused on technical skills, continuous learning, and software development.',
-
+      'Professional and academic experience focused on technical discipline, continuous growth, and software development.',
     jobs: [
       {
         meta: 'CURRENT · CIVIL CONSTRUCTION',
         role: 'Engineering Assistant',
-        company: 'Civil Engineering & Construction',
+        company: 'Engineering & Civil Construction',
         description:
-          'Working as an engineering assistant in the civil construction industry, supporting operational activities, organizing technical information, and monitoring routine processes.',
+          'Working as an assistant in civil construction engineering, supporting operational workflows, technical organization, and process monitoring.',
       },
       {
-        meta: 'CURRENTLY STUDYING · FATEC MAUÁ',
-        role: 'Multiplatform Software Development Student',
+        meta: 'IN PROGRESS · FATEC MAUÁ',
+        role: 'Multiplatform Software Student',
         company: 'FATEC Mauá',
         description:
-          'Pursuing a degree in Multiplatform Software Development, with studies in web development, system integration, databases, and automation.',
+          'Higher education in Multiplatform Software Development, studying web development, system integrations, databases, and automation.',
       },
     ],
-
-    bottom: 'Building · Learning · Growing',
+    bottom: 'Building · Learning · Evolving',
   },
 
   contact: {
@@ -159,49 +146,40 @@ export const EN = {
     titleLine3: 'something',
     titleGradient: 'meaningful.',
     intro:
-      "Have a project, internship opportunity, or idea you'd like to discuss? I'd be happy to connect.",
-
+      "Have a project, internship opportunity, or idea you'd like to discuss? I'd love to connect.",
     github: {
       label: 'Code',
-      description:
-        'Explore my repositories, projects, and source code.',
+      description: 'Explore my repositories, experiments, and source code.',
       ariaLabel: "Visit Pedro Siqueira's GitHub",
     },
-
     linkedin: {
       label: 'Professional',
-      description:
-        'Connect with me and learn more about my professional journey.',
+      description: 'Connect with me and see my professional journey.',
       ariaLabel: "Visit Pedro Siqueira's LinkedIn",
     },
-
     email: {
       label: 'Direct',
-      description:
-        'Send me a message to start a conversation.',
+      description: 'Send a direct message to start a conversation.',
       ariaLabel: 'Send an email to Pedro Siqueira',
     },
-
     availability: 'Open to opportunities',
     specialization: 'Software Development',
     bottom: 'Thanks for stopping by.',
-
     form: {
       label: 'Send a message',
       namePlaceholder: 'Your name',
-      emailLabel: 'Email',
-      emailPlaceholder: 'you@email.com',
+      emailLabel: 'E-mail',
+      emailPlaceholder: 'your@email.com',
       messageLabel: 'Message',
       messagePlaceholder: 'Tell me about your project or idea...',
       submit: 'Send message',
       sending: 'Sending...',
       retry: 'Try again',
-      nameError: 'Your name must contain at least 2 characters.',
-      emailError: 'Please enter a valid email address.',
-      messageError: 'Your message must contain at least 10 characters.',
+      nameError: 'Name must have at least 2 characters.',
+      emailError: 'Please enter a valid e-mail address.',
+      messageError: 'Message must have at least 10 characters.',
       successTitle: 'Message sent!',
-      successText:
-        'Thank you for reaching out. I will get back to you soon.',
+      successText: 'Thank you for reaching out. I will get back to you soon.',
     },
   },
 

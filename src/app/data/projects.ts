@@ -15,9 +15,15 @@ export const PROJECTS: Project[] = [
     link: 'https://github.com/pedrosiqueiragomes19-source/portfolio-pedro',
   },
   {
-    name: 'QuickHelp',
-    description: 'QuickHelp é uma plataforma web discreta de apoio a mulheres em risco, com interface de delivery, SOS, contatos de emergência e orientações de segurança. Projeto acadêmico interdisciplinar, em grupo e em andamento.ㅤTecnologias: PHP 8.3, Laravel 13, MySQL, JavaScript, HTML, CSS, Tailwind CSS 4, Vite, Blade e Chart.js. ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ      ㅤㅤㅤㅤQuickHelp is a discreet web platform supporting women in risky situations, with a delivery-app interface, SOS, emergency contacts and safety guidance. An interdisciplinary group academic project, in progress. Technologies: PHP 8.3, Laravel 13, MySQL, JavaScript, HTML, CSS, Tailwind CSS 4, Vite, Blade, and Chart.js.',
+    name: 'SUBSTITUIR',
+    description: 'SUBSTITUIR',
     image: '/logo.png',
-    link: 'https://quickhelp-tgd  9.onrender.com/',
+    link: 'https://github.com/pedrosiqueiragomes19-source',
+  },
+  {
+    name: 'SUBSTITUIR',
+    description: 'SUBSTITUIR',
+    image: '/logo.png',
+    link: 'https://github.com/pedrosiqueiragomes19-source',
   },
 ];

@@ -64,7 +64,7 @@
           class="site-navbar__language"
           [class.active]="languageService.language() === 'pt'"
           [attr.aria-pressed]="languageService.language() === 'pt'"
-          (click)="setLanguage('pt', $event)">
+          (click)="setLanguage('pt')">
           <span>PT</span>
         </button>
         <button
@@ -72,7 +72,7 @@
           class="site-navbar__language"
           [class.active]="languageService.language() === 'en'"
           [attr.aria-pressed]="languageService.language() === 'en'"
-          (click)="setLanguage('en', $event)">
+          (click)="setLanguage('en')">
           <span>EN</span>
         </button>
       </div>
@@ -219,14 +219,14 @@
             type="button"
             class="site-navbar__mobile-language-btn"
             [class.active]="languageService.language() === 'pt'"
-            (click)="setLanguage('pt', $event)">
+            (click)="setLanguage('pt')">
             <span>PT</span>
           </button>
           <button
             type="button"
             class="site-navbar__mobile-language-btn"
             [class.active]="languageService.language() === 'en'"
-            (click)="setLanguage('en', $event)">
+            (click)="setLanguage('en')">
             <span>EN</span>
           </button>
         </div>

@@ -108,114 +108,159 @@
 
       <!-- Estado de sucesso -->
       @if (isSuccess) {
-      <div class="contact-form-success" role="alert" aria-live="polite">
-        <div class="contact-form-success-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M20 6 9 17l-5-5" />
-          </svg>
+        <div class="contact-form-success" role="alert" aria-live="polite">
+          <div class="contact-form-success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <h3 class="contact-form-success-title">
+            {{ languageService.translations.contact.form.successTitle }}
+          </h3>
+          <p class="contact-form-success-text">
+            {{ languageService.translations.contact.form.successText }}
+          </p>
         </div>
-        <h3 class="contact-form-success-title">
-          {{ languageService.translations.contact.form.successTitle }}
-        </h3>
-        <p class="contact-form-success-text">
-          {{ languageService.translations.contact.form.successText }}
-        </p>
-      </div>
       } @else {
-      <form #contactForm="ngForm" id="contact-form" (ngSubmit)="onSubmit(contactForm)" novalidate class="contact-form">
-        <!-- Campo Honeypot anti-spam -->
-        <div class="contact-form-honeypot" aria-hidden="true">
-          <label for="contact-website">Website</label>
-          <input id="contact-website" name="honeypot" type="text" [(ngModel)]="formData.honeypot" tabindex="-1"
-            autocomplete="off" />
-        </div>
+        <form
+          #contactForm="ngForm"
+          id="contact-form"
+          (ngSubmit)="onSubmit(contactForm)"
+          novalidate
+          class="contact-form"
+        >
+          <!-- Campo Honeypot anti-spam -->
+          <div class="contact-form-honeypot" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="honeypot"
+              type="text"
+              [(ngModel)]="formData.honeypot"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
 
-        <div class="contact-form-grid">
-          <!-- Campo Nome -->
-          <div class="contact-form-field">
-            <label for="contact-name" class="contact-form-label">
-              {{ languageService.translations.contact.form.namePlaceholder }}
+          <div class="contact-form-grid">
+            <!-- Campo Nome -->
+            <div class="contact-form-field">
+              <label for="contact-name" class="contact-form-label">
+                {{ languageService.translations.contact.form.namePlaceholder }}
+                <span class="contact-form-required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                class="contact-form-input"
+                [class.contact-form-input--error]="nameField.invalid && nameField.touched"
+                [(ngModel)]="formData.name"
+                #nameField="ngModel"
+                required
+                minlength="2"
+                maxlength="100"
+                [placeholder]="languageService.translations.contact.form.namePlaceholder"
+                [attr.aria-invalid]="nameField.invalid && nameField.touched"
+                [attr.aria-describedby]="nameField.invalid && nameField.touched ? 'name-error' : null"
+                [disabled]="isLoading"
+              />
+              @if (nameField.invalid && nameField.touched) {
+                <span id="name-error" class="contact-form-error-msg" role="alert">
+                  {{ languageService.translations.contact.form.nameError }}
+                </span>
+              }
+            </div>
+
+            <!-- Campo E-mail -->
+            <div class="contact-form-field">
+              <label for="contact-email" class="contact-form-label">
+                {{ languageService.translations.contact.form.emailLabel }}
+                <span class="contact-form-required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                class="contact-form-input"
+                [class.contact-form-input--error]="emailField.invalid && emailField.touched"
+                [(ngModel)]="formData.email"
+                #emailField="ngModel"
+                required
+                email
+                maxlength="100"
+                [placeholder]="languageService.translations.contact.form.emailPlaceholder"
+                [attr.aria-invalid]="emailField.invalid && emailField.touched"
+                [attr.aria-describedby]="emailField.invalid && emailField.touched ? 'email-error' : null"
+                [disabled]="isLoading"
+              />
+              @if (emailField.invalid && emailField.touched) {
+                <span id="email-error" class="contact-form-error-msg" role="alert">
+                  {{ languageService.translations.contact.form.emailError }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <!-- Campo Mensagem -->
+          <div class="contact-form-field contact-form-field--full">
+            <label for="contact-message" class="contact-form-label">
+              {{ languageService.translations.contact.form.messageLabel }}
               <span class="contact-form-required" aria-hidden="true">*</span>
             </label>
-            <input id="contact-name" name="name" type="text" class="contact-form-input"
-              [class.contact-form-input--error]="nameField.invalid && nameField.touched" [(ngModel)]="formData.name"
-              #nameField="ngModel" required minlength="2" maxlength="100"
-              [placeholder]="languageService.translations.contact.form.namePlaceholder"
-              [attr.aria-invalid]="nameField.invalid && nameField.touched"
-              [attr.aria-describedby]="nameField.invalid && nameField.touched ? 'name-error' : null"
-              [disabled]="isLoading" />
-            @if (nameField.invalid && nameField.touched) {
-            <span id="name-error" class="contact-form-error-msg" role="alert">
-              {{ languageService.translations.contact.form.nameError }}
-            </span>
+            <textarea
+              id="contact-message"
+              name="message"
+              class="contact-form-textarea"
+              [class.contact-form-input--error]="messageField.invalid && messageField.touched"
+              [(ngModel)]="formData.message"
+              #messageField="ngModel"
+              required
+              minlength="10"
+              maxlength="2000"
+              rows="5"
+              [placeholder]="languageService.translations.contact.form.messagePlaceholder"
+              [attr.aria-invalid]="messageField.invalid && messageField.touched"
+              [attr.aria-describedby]="messageField.invalid && messageField.touched ? 'message-error' : null"
+              [disabled]="isLoading"
+            ></textarea>
+            @if (messageField.invalid && messageField.touched) {
+              <span id="message-error" class="contact-form-error-msg" role="alert">
+                {{ languageService.translations.contact.form.messageError }}
+              </span>
             }
           </div>
 
-          <!-- Campo E-mail -->
-          <div class="contact-form-field">
-            <label for="contact-email" class="contact-form-label">
-              {{ languageService.translations.contact.form.emailLabel }}
-              <span class="contact-form-required" aria-hidden="true">*</span>
-            </label>
-            <input id="contact-email" name="email" type="email" class="contact-form-input"
-              [class.contact-form-input--error]="emailField.invalid && emailField.touched" [(ngModel)]="formData.email"
-              #emailField="ngModel" required email maxlength="100"
-              [placeholder]="languageService.translations.contact.form.emailPlaceholder"
-              [attr.aria-invalid]="emailField.invalid && emailField.touched"
-              [attr.aria-describedby]="emailField.invalid && emailField.touched ? 'email-error' : null"
-              [disabled]="isLoading" />
-            @if (emailField.invalid && emailField.touched) {
-            <span id="email-error" class="contact-form-error-msg" role="alert">
-              {{ languageService.translations.contact.form.emailError }}
-            </span>
-            }
-          </div>
-        </div>
-
-        <!-- Campo Mensagem -->
-        <div class="contact-form-field contact-form-field--full">
-          <label for="contact-message" class="contact-form-label">
-            {{ languageService.translations.contact.form.messageLabel }}
-            <span class="contact-form-required" aria-hidden="true">*</span>
-          </label>
-          <textarea id="contact-message" name="message" class="contact-form-textarea"
-            [class.contact-form-input--error]="messageField.invalid && messageField.touched"
-            [(ngModel)]="formData.message" #messageField="ngModel" required minlength="10" maxlength="2000" rows="5"
-            [placeholder]="languageService.translations.contact.form.messagePlaceholder"
-            [attr.aria-invalid]="messageField.invalid && messageField.touched"
-            [attr.aria-describedby]="messageField.invalid && messageField.touched ? 'message-error' : null"
-            [disabled]="isLoading"></textarea>
-          @if (messageField.invalid && messageField.touched) {
-          <span id="message-error" class="contact-form-error-msg" role="alert">
-            {{ languageService.translations.contact.form.messageError }}
-          </span>
+          <!-- Mensagem de erro da API -->
+          @if (isError) {
+            <div class="contact-form-api-error" role="alert" aria-live="assertive">
+              <span>{{ errorMessage }}</span>
+              <button type="button" class="contact-form-api-error-retry" (click)="resetForm()">
+                {{ languageService.translations.contact.form.retry }}
+              </button>
+            </div>
           }
-        </div>
 
-        <!-- Mensagem de erro da API -->
-        @if (isError) {
-        <div class="contact-form-api-error" role="alert" aria-live="assertive">
-          <span>{{ errorMessage() }}</span>
-          <button type="button" class="contact-form-api-error-retry" (click)="resetForm()">
-            {{ languageService.translations.contact.form.retry }}
-          </button>
-        </div>
-        }
-
-        <!-- Botão de Envio -->
-        <div class="contact-form-actions">
-          <button id="contact-submit" type="submit" class="contact-form-submit"
-            [class.contact-form-submit--loading]="isLoading" [disabled]="isLoading" [attr.aria-busy]="isLoading">
-            @if (isLoading) {
-            <span class="contact-form-spinner" aria-hidden="true"></span>
-            <span>{{ languageService.translations.contact.form.sending }}</span>
-            } @else {
-            <span>{{ languageService.translations.contact.form.submit }}</span>
-            <i class="pi pi-arrow-up-right" aria-hidden="true"></i>
-            }
-          </button>
-        </div>
-      </form>
+          <!-- Botão de Envio -->
+          <div class="contact-form-actions">
+            <button
+              id="contact-submit"
+              type="submit"
+              class="contact-form-submit"
+              [class.contact-form-submit--loading]="isLoading"
+              [disabled]="isLoading"
+              [attr.aria-busy]="isLoading"
+            >
+              @if (isLoading) {
+                <span class="contact-form-spinner" aria-hidden="true"></span>
+                <span>{{ languageService.translations.contact.form.sending }}</span>
+              } @else {
+                <span>{{ languageService.translations.contact.form.submit }}</span>
+                <i class="pi pi-arrow-up-right" aria-hidden="true"></i>
+              }
+            </button>
+          </div>
+        </form>
       }
     </div>
 

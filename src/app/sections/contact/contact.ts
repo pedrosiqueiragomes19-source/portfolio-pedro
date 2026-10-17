@@ -3,8 +3,7 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  signal,
-  viewChild
+  ViewChild,
 } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
@@ -29,7 +28,8 @@ export class Contact implements AfterViewInit, OnDestroy {
   // SECTION
   // =========================================================
 
-  readonly contactSection = viewChild.required<ElementRef<HTMLElement>>('contactSection');
+  @ViewChild('contactSection', { static: true })
+  contactSection!: ElementRef<HTMLElement>;
 
   // =========================================================
   // INTERNAL
@@ -41,8 +41,8 @@ export class Contact implements AfterViewInit, OnDestroy {
   // FORM STATE
   // =========================================================
 
-  readonly formState = signal<FormState>('idle');
-  readonly errorMessage = signal('');
+  formState: FormState = 'idle';
+  errorMessage = '';
 
   /** Campos do formulário */
   formData = {
@@ -60,14 +60,14 @@ export class Contact implements AfterViewInit, OnDestroy {
   constructor(
     public languageService: LanguageService,
     private contactService: ContactService
-  ) { }
+  ) {}
 
   // =========================================================
   // LIFECYCLE
   // =========================================================
 
   ngAfterViewInit(): void {
-    this.sectionElement = this.contactSection().nativeElement;
+    this.sectionElement = this.contactSection.nativeElement;
   }
 
   // =========================================================
@@ -76,7 +76,7 @@ export class Contact implements AfterViewInit, OnDestroy {
 
   onSubmit(form: NgForm): void {
     // Verificação básica de validade e estado
-    if (form.invalid || this.formState() === 'loading') {
+    if (form.invalid || this.formState === 'loading') {
       return;
     }
 
@@ -86,8 +86,8 @@ export class Contact implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.formState.set('loading');
-    this.errorMessage.set('');
+    this.formState = 'loading';
+    this.errorMessage = '';
 
     this.contactService
       .sendMessage({
@@ -97,34 +97,34 @@ export class Contact implements AfterViewInit, OnDestroy {
       })
       .subscribe({
         next: () => {
-          this.formState.set('success');
+          this.formState = 'success';
           form.resetForm();
           this.formData = { name: '', email: '', message: '', honeypot: '' };
         },
         error: (err: Error) => {
-          this.formState.set('error');
-          this.errorMessage.set(err.message);
+          this.formState = 'error';
+          this.errorMessage = err.message;
         },
       });
   }
 
   /** Utilitário para reset manual após erro */
   resetForm(): void {
-    this.formState.set('idle');
-    this.errorMessage.set('');
+    this.formState = 'idle';
+    this.errorMessage = '';
   }
 
   /** Getter de conveniência para verificar estado */
   get isLoading(): boolean {
-    return this.formState() === 'loading';
+    return this.formState === 'loading';
   }
 
   get isSuccess(): boolean {
-    return this.formState() === 'success';
+    return this.formState === 'success';
   }
 
   get isError(): boolean {
-    return this.formState() === 'error';
+    return this.formState === 'error';
   }
 
   // =========================================================
@@ -132,7 +132,7 @@ export class Contact implements AfterViewInit, OnDestroy {
   // =========================================================
 
   private simulateSuccess(form: NgForm): void {
-    this.formState.set('success');
+    this.formState = 'success';
     form.resetForm();
     this.formData = { name: '', email: '', message: '', honeypot: '' };
   }

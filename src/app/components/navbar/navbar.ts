@@ -1,11 +1,4 @@
-import {
-  ApplicationRef,
-  ChangeDetectorRef,
-  Component,
-  HostListener,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { LanguageService } from '../../core/services/language.service';
 
@@ -21,20 +14,11 @@ export class Navbar implements OnInit, OnDestroy {
 
   isMobileMenuOpen = false;
 
-  private isTransitionRunning = false;
-
-  get isThemeTransitionRunning(): boolean {
-    return this.isTransitionRunning;
-  }
-
-  set isThemeTransitionRunning(val: boolean) {
-    this.isTransitionRunning = val;
-  }
+  private isThemeTransitionRunning = false;
 
   constructor(
     public languageService: LanguageService,
     private cdr: ChangeDetectorRef,
-    private appRef: ApplicationRef,
   ) {}
 
   ngOnInit(): void {
@@ -52,23 +36,19 @@ export class Navbar implements OnInit, OnDestroy {
   }
 
   /* =========================================================
-     CIRCULAR VIEW TRANSITION
+     THEME
      ========================================================= */
 
-  private runWithCircularTransition(
-    event: MouseEvent,
-    updateFn: () => void,
-  ): void {
+  toggleTheme(event: MouseEvent): void {
     /*
-     * Impede duas transições simultâneas
+     * Impede dois cliques de iniciarem duas transições
+     * ao mesmo tempo.
      */
-    if (this.isTransitionRunning) {
+    if (this.isThemeTransitionRunning) {
       return;
     }
 
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nextIsDark = !this.isDarkMode;
 
     const documentWithTransition = document as Document & {
       startViewTransition?: (callback: () => void) => {
@@ -80,12 +60,12 @@ export class Navbar implements OnInit, OnDestroy {
 
     /*
      * =======================================================
-     * FALLBACK / REDUCED MOTION
+     * FALLBACK
      * =======================================================
      */
-    if (!startViewTransition || prefersReducedMotion) {
-      updateFn();
-      this.appRef.tick();
+
+    if (!startViewTransition) {
+      this.applyTheme(nextIsDark);
       return;
     }
 
@@ -94,14 +74,17 @@ export class Navbar implements OnInit, OnDestroy {
      * TRANSITION LOCK
      * =======================================================
      */
-    this.isTransitionRunning = true;
+
+    this.isThemeTransitionRunning = true;
 
     /*
      * =======================================================
-     * PONTO DE ORIGEM DO CLIQUE
+     * PONTO DE ORIGEM
      * =======================================================
      */
+
     const button = event.currentTarget as HTMLElement;
+
     const rect = button.getBoundingClientRect();
 
     const x = rect.left + rect.width / 2;
@@ -109,9 +92,10 @@ export class Navbar implements OnInit, OnDestroy {
 
     /*
      * =======================================================
-     * RAIO MÁXIMO ATÉ OS CANTOS DA TELA
+     * RAIO
      * =======================================================
      */
+
     const maxRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y),
@@ -122,21 +106,35 @@ export class Navbar implements OnInit, OnDestroy {
      * CSS VARIABLES
      * =======================================================
      */
+
     document.documentElement.style.setProperty('--theme-transition-x', `${x}px`);
+
     document.documentElement.style.setProperty('--theme-transition-y', `${y}px`);
-    document.documentElement.style.setProperty(
-      '--theme-transition-radius',
-      `${maxRadius}px`,
-    );
+
+    document.documentElement.style.setProperty('--theme-transition-radius', `${maxRadius}px`);
 
     /*
      * =======================================================
      * VIEW TRANSITION
      * =======================================================
      */
+
     const transition = startViewTransition.call(document, () => {
-      updateFn();
-      this.appRef.tick();
+      /*
+       * Atualiza o tema.
+       */
+      this.applyTheme(nextIsDark);
+
+      /*
+       * IMPORTANTE:
+       * força o Angular a atualizar imediatamente
+       * os bindings:
+       *
+       * [class.is-dark]
+       * [class.pi-sun]
+       * [class.pi-moon]
+       */
+      this.cdr.detectChanges();
     });
 
     /*
@@ -144,20 +142,9 @@ export class Navbar implements OnInit, OnDestroy {
      * LIBERA O LOCK
      * =======================================================
      */
+
     transition.finished.finally(() => {
-      this.isTransitionRunning = false;
-    });
-  }
-
-  /* =========================================================
-     THEME
-     ========================================================= */
-
-  toggleTheme(event: MouseEvent): void {
-    const nextIsDark = !this.isDarkMode;
-
-    this.runWithCircularTransition(event, () => {
-      this.applyTheme(nextIsDark);
+      this.isThemeTransitionRunning = false;
     });
   }
 
@@ -173,19 +160,8 @@ export class Navbar implements OnInit, OnDestroy {
      LANGUAGE
      ========================================================= */
 
-  setLanguage(lang: 'pt' | 'en', event?: MouseEvent): void {
-    if (this.languageService.language() === lang) {
-      return;
-    }
-
-    if (event) {
-      this.runWithCircularTransition(event, () => {
-        this.languageService.setLanguage(lang);
-      });
-    } else {
-      this.languageService.setLanguage(lang);
-      this.appRef.tick();
-    }
+  setLanguage(lang: 'pt' | 'en'): void {
+    this.languageService.setLanguage(lang);
   }
 
   /* =========================================================
